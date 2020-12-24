@@ -1,65 +1,97 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import Nav from '../components/Nav';
+import {
+    FaGithub,
+    FaDiscord,
+    FaRedditAlien,
+    FaEnvelope,
+    FaExternalLinkAlt
+} from 'react-icons/fa';
+import {
+    Container,
+    Stack,
+    Box,
+    Spacer,
+    Heading,
+    useColorMode
+} from '@chakra-ui/react';
+
+import IconButton from '../components/Icon';
+import Project from '../components/Project';
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    const { colorMode } = useColorMode();
+    const color = colorMode === 'dark' ? 'white' : 'black';
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+    return (
+        <Container>
+            <Head>
+                <title>Lav's Site</title>
+            </Head>
+            <Nav />
+            <Stack
+                spacing={8}
+                justifyContent="center"
+                maxWidth="700px"
+            >
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+                <Box
+                    align="center"
+                    justify="space-between"
+                    padding="1.5rem"
+                >
+                    <Spacer />
+                    <Image src="/goat.png" width={250} height={250} />
+                    <Heading mt={2}>
+                        Hi. I'm Lav.
+                    </Heading>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+                    <IconButton
+                        icon={<FaGithub size={20} />}
+                        href="https://github.com/Sidemen19"
+                        color={color}
+                    />
+                    <IconButton
+                        icon={<FaDiscord size={19} />}
+                        href="https://discord.com/invite/3akrAcXq5h"
+                        color={color}
+                    />
+                    <IconButton
+                        icon={<FaRedditAlien size={21} />}
+                        href="https://reddit.com/u/lavg69"
+                        color={color}
+                    />
+                    <IconButton
+                        icon={<FaEnvelope size={21} />}
+                        href="mailto://lavyag01@gmail.com"
+                        color={color}
+                    />
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+                    <Heading mt={20}>
+                        Projects
+                    </Heading>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+                    <Stack mt={5} spacing={0.5}>
+                        <Project
+                            title="Wiki Utilities"
+                            description="A Discord bot designed to enhance the life of wiki moderators."
+                            href="https://github.com/Sidemen19/Wiki-Utilities"
+                        />
+                        <Project
+                            title="mediawiki.js"
+                            description="A full-blown API wrapper for MediaWiki sites."
+                            href="https://github.com/Sidemen19/mediawiki.js"
+                        />
+                        <Project
+                            title="VACEfron.js"
+                            description="A minimalistic API wrapper for VACEfron's Image API."
+                            href="https://github.com/Sidemen19/VACEfron.js"
+                        />
+                    </Stack>
+                </Box>
+            </Stack>
+        </Container>
+    )
 }
