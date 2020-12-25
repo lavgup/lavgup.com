@@ -1,5 +1,5 @@
 const title = 'Lav - Aussie idiot';
-const description = 'Lav is an Australian student with a passion to learn';
+const description = 'Australian student with a passion to learn and explore the world-wide web.';
 
 const SEO = {
     title,
@@ -13,10 +13,10 @@ const SEO = {
         description,
         images: [
             {
-                url: 'https://lavya.tech/_next/image?url=goat.png&w=256&q=75',
+                url: 'https://lavya.tech/static/banner.png',
                 alt: title,
-                width: 1280,
-                height: 720
+                width: 500,
+                height: 500
             }
         ]
     },

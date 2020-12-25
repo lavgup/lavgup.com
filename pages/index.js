@@ -43,7 +43,7 @@ export default function Home() {
                     padding="1.5rem"
                 >
                     <Spacer />
-                    <Image src="/goat.png" width={250} height={250} />
+                    <Image src="/static/goat.png" width={250} height={250} />
                     <Heading mt={2}>
                         Hi. I'm Lav.
                     </Heading>
