@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8691190a-11e6-4203-bf04-bdeeae612a4b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/portfolio.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/banner.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-seo.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next-seo.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_document.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_document.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/goat.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/goat.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +55,7 @@
       <updated>1608688353681</updated>
       <workItem from="1608688355485" duration="806000" />
       <workItem from="1608714654894" duration="15085000" />
-      <workItem from="1608882595931" duration="1566000" />
+      <workItem from="1608882595931" duration="1664000" />
     </task>
     <task id="LOCAL-00001" summary="Rewrite with React, Next.js and Chakra UI">
       <created>1608800407067</created>
