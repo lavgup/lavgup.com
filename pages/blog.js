@@ -1,5 +1,5 @@
 import React from 'react';
-import NextSeo from 'next-seo';
+import { NextSeo } from 'next-seo';
 import { Center } from '@chakra-ui/react';
 import Container from '../components/Container';
 
