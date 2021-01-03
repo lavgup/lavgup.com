@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 import Container from '../components/Container';
 import {
@@ -13,8 +12,9 @@ import {
     Spacer,
     Center,
     Heading,
-    useColorMode
+    useColorMode, Flex
 } from '@chakra-ui/react';
+import BlogPost from '../components/BlogPost';
 
 import IconButton from '../components/Icon';
 import Project from '../components/Project';
@@ -34,6 +34,7 @@ export default function Home() {
                     <Box
                         align="center"
                         justify="space-between"
+                        mb={5}
                     >
                         <Spacer />
                         <Image src="/static/goat.png" width={250} height={250} />
@@ -83,6 +84,26 @@ export default function Home() {
                                 href="https://github.com/Sidemen19/VACEfron.js"
                             />
                         </Stack>
+
+                        <Heading mt={20}>
+                            Latest posts
+                        </Heading>
+
+                        <Flex
+                            flexDirection="column"
+                            justifyContent="flex-start"
+                            alignItems="flex-start"
+                            maxWidth="700px"
+                            mt={4}
+                            ml={3}
+                            mr={3}
+                        >
+                            <BlogPost
+                                title="My Website's Journey"
+                                description="The journey of my website and where it has been through the past year."
+                                slug="my-websites-journey"
+                            />
+                        </Flex>
                     </Box>
                 </Stack>
             </Center>

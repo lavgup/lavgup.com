@@ -1,14 +1,10 @@
-import React from 'react';
 import {
     useColorMode,
-    Center,
     Heading,
     Text,
     Flex,
     Stack,
-    Avatar,
-    Spacer,
-    Box
+    Avatar
 } from '@chakra-ui/react';
 import { format, parseISO } from 'date-fns';
 import BlogSeo from '../components/BlogSeo';

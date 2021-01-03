@@ -1,13 +1,43 @@
-import React from 'react';
+import { useState } from 'react';
 import { NextSeo } from 'next-seo';
-import { Center } from '@chakra-ui/react';
+import {
+    Box,
+    Center,
+    Heading,
+    Stack,
+    useColorMode,
+    Text,
+    Input,
+    InputGroup,
+    InputRightElement,
+    Icon,
+    Flex
+} from '@chakra-ui/react';
 import Container from '../components/Container';
+import { getAllFrontMatter } from '../lib/mdx';
+import { FaSearch } from 'react-icons/fa';
+import BlogPost from '../components/BlogPost';
 
 const url = 'https://lavya.tech/blog';
 const title = 'Blog - Lav';
-const description = 'Random discussion on my personal thoughts, projects and hobbies';
+const description = 'Random discussion on my personal thoughts, projects and hobbies.';
 
-function Blog() {
+function Blog({ posts }) {
+    const [searchValue, setSearchValue] = useState('');
+    const { colorMode } = useColorMode();
+    const secondaryTextColor = {
+        light: 'gray.700',
+        dark: 'gray.400'
+    };
+
+    const filteredBlogPosts = posts
+        .sort((a, b) =>
+                Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+        )
+        .filter(frontMatter =>
+            frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
+        );
+
     return (
         <Container>
             <NextSeo
@@ -22,10 +52,77 @@ function Blog() {
             />
 
             <Center>
-                OK
+                <Stack
+                    spacing={8}
+                    justifyContent="center"
+                    maxWidth="700px"
+                    ml={3}
+                    mr={3}
+                >
+                    <Box
+                        align="center"
+                        justify="space-between"
+                    >
+                        <Heading>
+                            Blog
+                        </Heading>
+                        <Text mt={3} color={secondaryTextColor[colorMode]}>
+                            {description}
+                        </Text>
+
+                        <InputGroup my={4} mr={4} w="100%">
+                            <Input
+                                aria-label="Search for a blog post"
+                                placeholder="Search for a blog post"
+                                onChange={e => setSearchValue(e.target.value)}
+                            />
+                            <InputRightElement children={<Icon as={FaSearch} />} />
+                        </InputGroup>
+
+                        {!searchValue && (
+                            <Flex
+                                flexDirection="column"
+                                justifyContent="flex-start"
+                                alignItems="flex-start"
+                                maxWidth="700px"
+                                mt={8}
+                            >
+                                <Heading letterSpacing="tight" mb={4} size="lg" fontWeight={700}>
+                                    Most Popular
+                                </Heading>
+                                <BlogPost
+                                    title="My Website's Journey"
+                                    description="The journey of my website and where it has been through the past year."
+                                    slug="my-websites-journey"
+                                />
+                            </Flex>
+                        )}
+                        <Flex
+                            flexDirection="column"
+                            justifyContent="flex-start"
+                            alignItems="flex-start"
+                            maxWidth="700px"
+                            mt={6}
+                        >
+                            <Heading letterSpacing="tight" mb={4} size="lg" fontWeight={700}>
+                                All Posts
+                            </Heading>
+                            {!filteredBlogPosts.length && 'No posts found.'}
+                            {filteredBlogPosts.map((frontMatter) => (
+                                <BlogPost key={frontMatter.title} {...frontMatter} />
+                            ))}
+                        </Flex>
+                    </Box>
+                </Stack>
             </Center>
         </Container>
     )
+}
+
+export async function getStaticProps() {
+    const posts = await getAllFrontMatter();
+
+    return { props: { posts } };
 }
 
 export default Blog;

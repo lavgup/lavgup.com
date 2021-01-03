@@ -1,4 +1,3 @@
-import React from 'react';
 import hydrate from 'next-mdx-remote/hydrate';
 
 import { getFiles, getFileBySlug } from '../../lib/mdx';

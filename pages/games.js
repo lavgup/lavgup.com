@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaTwitch, FaDiscord } from 'react-icons/fa';
 import { signIn, useSession } from 'next-auth/client';
 import {
@@ -19,7 +18,7 @@ import AddGame from '../components/AddGame';
 
 const url = 'https://lavya.tech/games';
 const title = 'Game Wiki Database - Lav';
-const description = 'A database hosted on GitHub storing information on games and their correlating Fandom/Gamepedia wikis.';
+const description = 'A database hosted storing information on games and their correlating Fandom/Gamepedia wikis.';
 
 function Games() {
     const [session, loading] = useSession();

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, IconButton } from '@chakra-ui/react';
 
 function Icon({ icon, href, color }) {
@@ -8,7 +7,7 @@ function Icon({ icon, href, color }) {
                 bg="transparent"
                 mt={2}
                 size="md"
-                aria-label="toggle color mode"
+                aria-label="social"
                 icon={icon}
                 color={color}
             />
