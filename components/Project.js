@@ -4,8 +4,10 @@ import {
     Link,
     Heading,
     Text,
-    Stack,
-    Container,
+    VStack,
+    Box,
+    Center,
+    Spacer,
     useColorMode
 } from '@chakra-ui/react';
 
@@ -13,31 +15,34 @@ function Project({ title, description, href }) {
     const { colorMode } = useColorMode();
     const borderColors = {
         light: 'gray.800',
-        dark: 'gray.500'
+        dark: 'gray.600'
     };
 
+    const bg = {
+        light: 'yellow.400',
+        dark: 'teal.900'
+    }
+
     return (
-        <Container centerContent>
+        <Box>
+            <Center>
             <Link
-                mb={4}
                 href={href}
                 title={title}
+                width="100%"
                 isExternal
                 _hover={{
-                    boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.05)',
-                    textDecoration: 'none'
+                    bg: bg[colorMode]
                 }}
             >
-                <Flex
-                    align="center"
-                    border="1px solid"
+                <Box
+                    border="0.5px solid"
+                    borderRadius="5px"
                     borderColor={borderColors[colorMode]}
-                    borderRadius={4}
                     p={3}
                 >
-                    <Stack>
+                    <VStack>
                         <Heading
-                            as="h4"
                             size="md"
                             fontWeight="bold"
                             mb={2.5}
@@ -45,13 +50,14 @@ function Project({ title, description, href }) {
                         >
                             {title}
                         </Heading>
-                        <Text lineHeight={1.3} mt={1.5}>
+                        <Text lineHeight={1.3}>
                             {description}
                         </Text>
-                    </Stack>
-                </Flex>
+                    </VStack>
+                </Box>
             </Link>
-        </Container>
+            </Center>
+        </Box>
     )
 }
 

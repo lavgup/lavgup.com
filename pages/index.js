@@ -66,7 +66,7 @@ export default function Home() {
                             Projects
                         </Heading>
 
-                        <Stack mt={5} spacing={0.5}>
+                        <Stack ml={3} mr={3} mt={5} mb={3} spacing={4}>
                             <Project
                                 title="Wiki Utilities"
                                 description="A Discord bot designed to enhance the life of wiki moderators."
