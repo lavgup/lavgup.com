@@ -1,22 +1,35 @@
 import React from 'react';
+import NextLink from 'next/link';
 import {
     Flex,
     Spacer,
+    Button,
+    Text,
     IconButton,
     useColorMode
 } from '@chakra-ui/react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
-function Nav(props) {
+function Nav({ isMainPage = false }) {
     const { colorMode, toggleColorMode } = useColorMode();
+
     return (
         <Flex
             align="center"
             justify="space-between"
             pt="1.5rem"
             pr="1.5rem"
-            {...props}
+            pl="1.5rem"
         >
+            {!isMainPage &&
+            <NextLink href="/">
+                <Button variant="ghost" p={[1, 4]}>
+                    <Text fontSize="md">
+                        Lav
+                    </Text>
+                </Button>
+            </NextLink>
+            }
             <Spacer />
             <Spacer />
             <IconButton

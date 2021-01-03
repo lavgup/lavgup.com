@@ -1,8 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8691190a-11e6-4203-bf04-bdeeae612a4b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.production" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/AddGame.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/BlogSeo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Container.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/MDXComponents.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/blog/my-websites-journey.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layouts/blog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/github.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mdx.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/addgame.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/auth/[...nextauth].js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/blog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/blog/[slug].js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/games.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/prism.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/theme.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Nav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_document.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_document.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/hello.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +47,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1m2OjOTGiNmSGTIYQIOu5sA3ZSW" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,12 +64,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="javascript.nodejs.core.library.configured.version" value="14.15.1" />
+    <property name="javascript.nodejs.core.library.typings.version" value="14.14.16" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="discord-application" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -42,6 +80,7 @@
       <recent name="C:\Users\Lavya Gupta\Projects\portfolio\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lavya Gupta\Projects\portfolio\content\blog" />
       <recent name="C:\Users\Lavya Gupta\Projects\portfolio\public\static" />
     </key>
   </component>
@@ -55,7 +94,16 @@
       <updated>1608688353681</updated>
       <workItem from="1608688355485" duration="806000" />
       <workItem from="1608714654894" duration="15085000" />
-      <workItem from="1608882595931" duration="1664000" />
+      <workItem from="1608882595931" duration="7452000" />
+      <workItem from="1608934623239" duration="2255000" />
+      <workItem from="1608953409944" duration="32000" />
+      <workItem from="1608953443243" duration="66000" />
+      <workItem from="1608953530980" duration="11491000" />
+      <workItem from="1609110639179" duration="10606000" />
+      <workItem from="1609300528632" duration="506000" />
+      <workItem from="1609301202710" duration="19658000" />
+      <workItem from="1609478782303" duration="8327000" />
+      <workItem from="1609539278731" duration="10591000" />
     </task>
     <task id="LOCAL-00001" summary="Rewrite with React, Next.js and Chakra UI">
       <created>1608800407067</created>
@@ -95,7 +143,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fix SEO related necessities" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
+    <expand>
+      <path>
+        <item name="portfolio" type="b2602c69:ProjectViewProjectNode" />
+        <item name="portfolio" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
     <select />
   </component>
 </project>
