@@ -1,3 +1,4 @@
+import React from 'react';
 import Image from 'next/image';
 import Container from '../components/Container';
 import {
@@ -94,14 +95,16 @@ export default function Home() {
                             justifyContent="flex-start"
                             alignItems="flex-start"
                             maxWidth="700px"
-                            mt={4}
+                            mt={5}
                             ml={3}
                             mr={3}
+                            mb={10}
                         >
                             <BlogPost
                                 title="My Website's Journey"
                                 description="The journey of my website and where it has been through the past year."
                                 slug="my-websites-journey"
+                                isMainPage
                             />
                         </Flex>
                     </Box>

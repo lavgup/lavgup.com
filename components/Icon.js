@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link, IconButton } from '@chakra-ui/react';
 
 function Icon({ icon, href, color }) {

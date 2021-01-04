@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import { NextSeo } from 'next-seo';
 import {
@@ -79,24 +80,6 @@ function Blog({ posts }) {
                             <InputRightElement children={<Icon as={FaSearch} />} />
                         </InputGroup>
 
-                        {!searchValue && (
-                            <Flex
-                                flexDirection="column"
-                                justifyContent="flex-start"
-                                alignItems="flex-start"
-                                maxWidth="700px"
-                                mt={8}
-                            >
-                                <Heading letterSpacing="tight" mb={4} size="lg" fontWeight={700}>
-                                    Most Popular
-                                </Heading>
-                                <BlogPost
-                                    title="My Website's Journey"
-                                    description="The journey of my website and where it has been through the past year."
-                                    slug="my-websites-journey"
-                                />
-                            </Flex>
-                        )}
                         <Flex
                             flexDirection="column"
                             justifyContent="flex-start"

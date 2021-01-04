@@ -1,3 +1,4 @@
+import React from 'react';
 import { FaTwitch, FaDiscord } from 'react-icons/fa';
 import { signIn, useSession } from 'next-auth/client';
 import {

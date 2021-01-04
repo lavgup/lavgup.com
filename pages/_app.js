@@ -1,3 +1,4 @@
+import React from 'react';
 import SEO from '../next-seo.config';
 import { DefaultSeo } from 'next-seo';
 import { Global, css } from '@emotion/react';
@@ -22,6 +23,25 @@ function GlobalStyles({ children }) {
             <CSSReset />
             <Global styles={css`
               ${colorMode === 'dark' ? prismDarkTheme : prismLightTheme};
+
+              ::selection {
+                background-color: #90CDF4;
+                color: #fefefe;
+              }
+              ::-moz-selection {
+                background: #ffb7b7;
+                color: #fefefe;
+              }
+              html {
+                min-width: 356px;
+                scroll-behavior: smooth;
+              }
+              #__next {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                background: ${colorMode === 'light' ? 'white' : '#171717'};
+              }
             `} />
             {children}
         </>
@@ -30,7 +50,7 @@ function GlobalStyles({ children }) {
 
 function MyApp({ Component, pageProps }) {
     return (
-        <ChakraProvider theme={theme}>
+        <ChakraProvider resetCSS theme={theme}>
             <MDXProvider components={MDXComponents}>
                 <GlobalStyles>
                     <DefaultSeo {...SEO} />

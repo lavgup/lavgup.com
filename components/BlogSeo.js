@@ -1,3 +1,4 @@
+import React from 'react';
 import { NextSeo, ArticleJsonLd } from 'next-seo';
 
 function BlogSeo({ title, description, publishedAt, url }) {
