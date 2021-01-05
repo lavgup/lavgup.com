@@ -165,7 +165,7 @@ class AddGame extends React.Component {
                                 <Field
                                     name="farm"
                                 >
-                                    {({ field, form }) => (
+                                    {() => (
                                         <FormControl
                                             align="left"
                                             mt={6}
