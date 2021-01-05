@@ -40,7 +40,6 @@ function Games() {
                 <Stack
                     spacing={8}
                     justifyContent="center"
-                    maxWidth="700px"
                     ml={3}
                     mr={3}
                 >

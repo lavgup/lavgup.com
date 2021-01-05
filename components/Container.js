@@ -1,32 +1,27 @@
 import React from 'react';
 import Nav from './Nav';
 import Footer from './Footer';
-import { Flex, Box, chakra } from '@chakra-ui/react';
+import { Flex, Box, Center, chakra } from '@chakra-ui/react';
 
 function Container({ children, isMainPage }) {
     return (
         <>
             <Nav isMainPage={isMainPage} />
-            <Box alignSelf="center">
+            <Center>
                 <Flex
                     as="main"
                     justifyContent="center"
                     flexDirection="column"
+                    position="relative"
                     px={[0, 4, 4]}
-                    mt={[0, 8, 8]}
+                    mt={[0, 10, 10]}
+                    w="full"
+                    mx="auto"
+                    maxW="3xl"
                 >
                     {children}
-
-                    <Box alignSelf="center">
-                        <chakra.footer children={<Footer />}
-                                       position="fixed"
-                                       bottom={0}
-                                       right={2}
-                                       textAlign="center"
-                        />
-                    </Box>
                 </Flex>
-            </Box>
+            </Center>
         </>
     )
 }

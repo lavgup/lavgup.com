@@ -25,19 +25,16 @@ export default function Home() {
     const color = colorMode === 'dark' ? 'white' : 'black';
 
     return (
-        <Container isMainPage={true}>
+        <Container isMainPage>
             <Center>
                 <Stack
-                    spacing={8}
                     justifyContent="center"
-                    maxWidth="700px"
                 >
                     <Box
                         align="center"
                         justify="space-between"
                         mb={5}
                     >
-                        <Spacer />
                         <Image src="/static/goat.png" width={250} height={250} />
                         <Heading mt={2}>
                             Hi. I'm Lav.
@@ -94,7 +91,6 @@ export default function Home() {
                             flexDirection="column"
                             justifyContent="flex-start"
                             alignItems="flex-start"
-                            maxWidth="700px"
                             mt={5}
                             ml={3}
                             mr={3}

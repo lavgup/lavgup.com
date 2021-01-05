@@ -56,7 +56,6 @@ function Blog({ posts }) {
                 <Stack
                     spacing={8}
                     justifyContent="center"
-                    maxWidth="700px"
                     ml={3}
                     mr={3}
                 >
@@ -84,7 +83,6 @@ function Blog({ posts }) {
                             flexDirection="column"
                             justifyContent="flex-start"
                             alignItems="flex-start"
-                            maxWidth="700px"
                             mt={6}
                         >
                             <Heading letterSpacing="tight" mb={4} size="lg" fontWeight={700}>

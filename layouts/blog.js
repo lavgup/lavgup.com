@@ -31,13 +31,11 @@ function BlogLayout({ children, frontMatter }) {
                     mr="auto"
                     mb="4rem"
                     ml="auto"
-                    maxWidth="700px"
                     w="100%"
                     px={2}
                 >
                     <Flex
                         flexDirection="column"
-                        maxWidth="700px"
                         w="100%"
                     >
                         <Heading letterSpacing="tight" mb={3} size="2xl">
