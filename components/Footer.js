@@ -21,7 +21,7 @@ function Footer() {
             <div>
                 <IconButton
                     icon={<FaGithub size={20} />}
-                    href="https://github.com/Sidemen19"
+                    href="https://github.com/lavgup"
                     color
                 />
                 <IconButton

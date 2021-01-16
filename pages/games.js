@@ -57,7 +57,7 @@ function Games() {
                                 <Text mb={7}>
                                     The Game Wiki Database is a database hosted
                                     {" "}
-                                    <Link color="teal.400" href="https://github.com/Sidemen19/game-wiki-db" isExternal>
+                                    <Link color="teal.400" href="https://github.com/lavgup/game-wiki-db" isExternal>
                                         on GitHub
                                     </Link>
                                     {" "} storing information on games and their correlating Fandom/Gamepedia wikis.

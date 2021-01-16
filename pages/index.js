@@ -47,7 +47,7 @@ export default function Home() {
 
                         <IconButton
                             icon={<FaGithub size={20} />}
-                            href="https://github.com/Sidemen19"
+                            href="https://github.com/lavgup"
                             color={color}
                         />
                         <IconButton
@@ -74,17 +74,17 @@ export default function Home() {
                             <Project
                                 title="Wiki Utilities"
                                 description="A Discord bot designed to enhance the life of wiki moderators."
-                                href="https://github.com/Sidemen19/Wiki-Utilities"
+                                href="https://github.com/lavgup/Wiki-Utilities"
                             />
                             <Project
                                 title="mediawiki.js"
                                 description="A full-blown API wrapper for MediaWiki sites."
-                                href="https://github.com/Sidemen19/mediawiki.js"
+                                href="https://github.com/lavgup/mediawiki.js"
                             />
                             <Project
                                 title="VACEfron.js"
                                 description="A minimalistic API wrapper for VACEfron's Image API."
-                                href="https://github.com/Sidemen19/VACEfron.js"
+                                href="https://github.com/lavgup/VACEfron.js"
                             />
                         </Stack>
 
