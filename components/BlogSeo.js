@@ -25,7 +25,7 @@ function BlogSeo({ title, description, publishedAt, url }) {
                 dateModified={date}
                 datePublished={date}
                 description={description}
-                publisherLogo="/goat.png"
+                publisherLogo="/static/llama.png"
                 publisherName="Lav"
                 title={title}
                 url={url}

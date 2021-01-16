@@ -152,7 +152,7 @@ class AddGame extends React.Component {
                                                     borderRadius="0"
                                                     placeholder="minecraft"
                                                 />
-                                                <InputRightAddon children={`${this.state.farm}.com`} />
+                                                <InputRightAddon children={`.${this.state.farm}.com`} />
                                             </InputGroup>
                                             <FormHelperText>The game's Fandom/Gamepedia wiki.</FormHelperText>
                                             <FormErrorMessage>
@@ -208,7 +208,7 @@ class AddGame extends React.Component {
                                     )}
                                 </Field>
 
-                                <Flex mt={6}>
+                                <Flex mt={10} mb={4}>
                                     <Button
                                         colorScheme="blue"
                                         size="md"

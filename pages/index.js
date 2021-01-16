@@ -35,7 +35,12 @@ export default function Home() {
                         justify="space-between"
                         mb={5}
                     >
-                        <Image src="/static/goat.png" width={250} height={250} />
+                        <Image
+                            src="/static/llama.png"
+                            width={256}
+                            height={259}
+                            alt="LLama"
+                        />
                         <Heading mt={2}>
                             Hi. I'm Lav.
                         </Heading>

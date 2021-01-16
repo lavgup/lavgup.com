@@ -52,7 +52,7 @@ function BlogLayout({ children, frontMatter }) {
                                 <Avatar
                                     size="xs"
                                     name="Lav"
-                                    src="/static/goat.png"
+                                    src="/static/llama.png"
                                     mr={2}
                                 />
                                 <Text fontSize="sm" color={textColor[colorMode]}>
