@@ -18,6 +18,8 @@ import { getAllFrontMatter } from '../lib/mdx';
 import { FaSearch } from 'react-icons/fa';
 import BlogPost from '../components/BlogPost';
 
+const description = 'Random discussion on my personal thoughts, projects and hobbies.';
+
 function Blog({ posts }) {
     const [searchValue, setSearchValue] = useState('');
     const { colorMode } = useColorMode();
@@ -37,7 +39,7 @@ function Blog({ posts }) {
     return (
         <Container
             title="Blog - Lav"
-            description="Random discussion on my personal thoughts, projects and hobbies."
+            description={description}
         >
             <Center>
                 <Stack
