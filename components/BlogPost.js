@@ -1,6 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { useColorMode, Heading, Text, Flex, Box, Link } from '@chakra-ui/react';
+import { useColorMode, Heading, Text, Box, Link } from '@chakra-ui/react';
 
 function BlogPost(frontMatter) {
     const { colorMode } = useColorMode();

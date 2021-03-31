@@ -23,7 +23,6 @@
     "next": "^10.1.2",
     "next-google-fonts": "^1.2.1",
     "next-mdx-remote": "^2.0.0",
-    "next-seo": "^4.17.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-icons": "^4.1.0",

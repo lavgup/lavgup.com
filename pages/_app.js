@@ -1,6 +1,4 @@
 import React from 'react';
-import SEO from '../next-seo.config';
-import { DefaultSeo } from 'next-seo';
 import { Global, css } from '@emotion/react';
 import {
     ChakraProvider,
@@ -53,7 +51,6 @@ function MyApp({ Component, pageProps }) {
         <ChakraProvider resetCSS theme={theme}>
             <MDXProvider components={MDXComponents}>
                 <GlobalStyles>
-                    <DefaultSeo {...SEO} />
                     <Component {...pageProps} />
                 </GlobalStyles>
             </MDXProvider>

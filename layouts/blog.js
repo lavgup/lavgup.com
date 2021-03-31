@@ -8,7 +8,6 @@ import {
     Avatar
 } from '@chakra-ui/react';
 import { format, parseISO } from 'date-fns';
-import BlogSeo from '../components/BlogSeo';
 import Container from '../components/Container';
 
 function BlogLayout({ children, frontMatter }) {
@@ -20,8 +19,12 @@ function BlogLayout({ children, frontMatter }) {
 
     return (
         <>
-            <Container>
-                <BlogSeo url={`https://lavya.tech/blog/${frontMatter.slug}`} {...frontMatter} />
+            <Container
+                title={`${frontMatter.title} - Lav`}
+                description={frontMatter.summary}
+                date={new Date(frontMatter.publishedAt).toISOString()}
+                type={"article"}
+            >
                 <Stack
                     as="article"
                     spacing={8}
