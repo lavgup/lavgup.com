@@ -1,62 +1,22 @@
 import React from 'react';
-import {
-    Link,
-    Heading,
-    Text,
-    VStack,
-    Box,
-    Center,
-    useColorMode
-} from '@chakra-ui/react';
 
-function Project({ title, description, href }) {
-    const { colorMode } = useColorMode();
-    const borderColors = {
-        light: 'gray.800',
-        dark: 'gray.600'
-    };
-
-    const bg = {
-        light: 'yellow.400',
-        dark: 'teal.900'
-    }
-
-    return (
-        <Box>
-            <Center>
-            <Link
-                href={href}
-                title={title}
-                width="100%"
-                isExternal
-                _hover={{
-                    bg: bg[colorMode]
-                }}
-            >
-                <Box
-                    border="0.5px solid"
-                    borderRadius="5px"
-                    borderColor={borderColors[colorMode]}
-                    p={3}
-                >
-                    <VStack>
-                        <Heading
-                            size="md"
-                            fontWeight="bold"
-                            mb={2.5}
-                            letterSpacing="tighter"
-                        >
-                            {title}
-                        </Heading>
-                        <Text lineHeight={1.3}>
-                            {description}
-                        </Text>
-                    </VStack>
-                </Box>
-            </Link>
-            </Center>
-        </Box>
-    )
+export default function Project({ title, description, href }) {
+	return (
+		<a
+			className="mb-3 hover:shadow"
+			href={href}
+			aria-label={title}
+			target="_blank"
+			rel={"noopener noreferrer"}
+		>
+			<div className="items-center border border-gray-200 dark:border-gray-800 rounded p-4">
+				<h4 className="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
+					{title}
+				</h4>
+				<p className="leading-5 text-gray-700 dark:text-gray-300">
+					{description}
+				</p>
+			</div>
+		</a>
+	);
 }
-
-export default Project;

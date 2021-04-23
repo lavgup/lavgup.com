@@ -1,79 +1,37 @@
 import React from 'react';
-import {
-    useColorMode,
-    Heading,
-    Text,
-    Flex,
-    Stack,
-    Avatar
-} from '@chakra-ui/react';
 import { format, parseISO } from 'date-fns';
 import Container from '../components/Container';
+import Tag from '../components/Tag';
 
-function BlogLayout({ children, frontMatter }) {
-    const { colorMode } = useColorMode();
-    const textColor = {
-        light: 'gray.800',
-        dark: 'gray.500'
-    };
+export default function BlogLayout({ children, frontMatter }) {
 
-    return (
-        <>
-            <Container
-                title={`${frontMatter.title} - Lav`}
-                description={frontMatter.summary}
-                date={new Date(frontMatter.publishedAt).toISOString()}
-                type={"article"}
-            >
-                <Stack
-                    as="article"
-                    spacing={8}
-                    justifyContent="center"
-                    alignItems="flex-start"
-                    mt="auto"
-                    mr="auto"
-                    mb="4rem"
-                    ml="auto"
-                    w="100%"
-                    px={2}
-                >
-                    <Flex
-                        flexDirection="column"
-                        w="100%"
-                    >
-                        <Heading letterSpacing="tight" mb={3} size="2xl">
-                            {frontMatter.title}
-                        </Heading>
-                        <Flex
-                            justify="space-between"
-                            align={['initial', 'center']}
-                            direction={['column', 'row']}
-                            mt={2}
-                            w="100%"
-                        >
-                            <Flex align="center">
-                                <Avatar
-                                    size="xs"
-                                    name="Lav"
-                                    src="/static/llama.png"
-                                    mr={2}
-                                />
-                                <Text fontSize="sm" color={textColor[colorMode]}>
-                                    {frontMatter.by}
-                                    {'Lav / '}
-                                    {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
-                                </Text>
-                            </Flex>
-                            <Text fontSize="sm" color="gray.500" minWidth="100px" mt={[2, 0]}>
-                                {frontMatter.readingTime.text}
-                            </Text>
-                        </Flex>
-                    </Flex>
-                    {children}
-                </Stack>
-            </Container>
-        </>
-    )
+	return (
+		<Container
+			title={`${frontMatter.title} - Lav`}
+			description={frontMatter.description}
+			date={new Date(frontMatter.publishedAt).toISOString()}
+			type="article"
+		>
+			<article className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
+				<h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+					{frontMatter.title}
+				</h1>
+				<p className="text-sm text-gray-700 dark:text-gray-300">
+					{format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
+				</p>
+				<p className="text-sm text-gray-400 min-w-32 mt-3 md:mt-1">
+					{frontMatter.readingTime.text}
+				</p>
+				<div className="flex justify-start mt-3">
+					{frontMatter.tags.map(tag => (
+						<Tag key={tag} tag={tag} />
+					))}
+				</div>
+				<hr className="w-full border-1 border-gray-200 dark:border-gray-800 mt-6" />
+				<div className="prose dark:prose-dark dark:text-gray-400 max-w-none w-full">
+					{children}
+				</div>
+			</article>
+		</Container>
+	);
 }
-
-export default BlogLayout;

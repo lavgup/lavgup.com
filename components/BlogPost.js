@@ -1,32 +1,25 @@
 import React from 'react';
-import NextLink from 'next/link';
-import { useColorMode, Heading, Text, Box, Link } from '@chakra-ui/react';
+import Link from 'next/link';
+import Tag from './Tag';
 
-function BlogPost(frontMatter) {
-    const { colorMode } = useColorMode();
-    const secondaryTextColor = {
-        light: 'gray.700',
-        dark: 'gray.400'
-    };
-
+export default function BlogPost({ title, description, slug, tags }) {
     return (
-        <NextLink href={`blog/${frontMatter.slug}`} passHref>
-            <Link w="100%" _hover={{ textDecoration: 'none' }}>
-                <Box
-                    display="block"
-                    width="100%"
-                    align={frontMatter.isMainPage ? 'center' : 'left'}
-                >
-                    <Heading size="md" mb={2} fontWeight="medium">
-                        {frontMatter.title}
-                    </Heading>
-                    <Text color={secondaryTextColor[colorMode]}>
-                        {frontMatter.description}
-                    </Text>
-                </Box>
-            </Link>
-        </NextLink>
-    )
+        <Link href={`/blog/${slug}`}>
+            <a className="w-full">
+                <div className="mb-8">
+                    <div className="flex flex-col md:flex-row justify-between">
+                        <h4 className="text-lg md:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-100">
+                            {title}
+                        </h4>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-400">{description}</p>
+	                <div className="flex justify-start mt-3">
+		                {tags.map(tag => (
+			                <Tag key={tag} tag={tag} />
+		                ))}
+	                </div>
+                </div>
+            </a>
+        </Link>
+    );
 }
-
-export default BlogPost;

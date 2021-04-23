@@ -1,11 +1,10 @@
-import React from 'react';
-import Nav from './Nav';
-import { Flex, Center } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import Nav from './Nav';
+import Footer from './Footer';
 
-function Container(props) {
-	const { children, isMainPage, ...customMeta } = props;
+export default function Container(props) {
+	const { children, ...customMeta } = props;
 	const router = useRouter();
 	const meta = {
 		title: 'Lav Gup - Aussie student',
@@ -16,7 +15,7 @@ function Container(props) {
 	};
 
 	return (
-		<>
+		<div className="bg-gray-100 dark:bg-black">
 			<Head>
 				<title>{meta.title}</title>
 				<meta name="robots" content="follow, index" />
@@ -37,24 +36,13 @@ function Container(props) {
 				)}
 			</Head>
 
-			<Nav isMainPage={isMainPage} />
-			<Center>
-				<Flex
-					as="main"
-					justifyContent="center"
-					flexDirection="column"
-					position="relative"
-					px={[0, 4, 4]}
-					mt={[0, 10, 10]}
-					w="full"
-					mx="auto"
-					maxW="3xl"
-				>
+			<main className="flex flex-col min-h-screen bg-gray-100 dark:bg-black px-8">
+				<Nav />
+				<div className="flex-auto">
 					{children}
-				</Flex>
-			</Center>
-		</>
+				</div>
+				<Footer />
+			</main>
+		</div>
 	)
 }
-
-export default Container;

@@ -1,98 +1,45 @@
 import React from 'react';
-import { useState } from 'react';
-import {
-    Box,
-    Center,
-    Heading,
-    Stack,
-    useColorMode,
-    Text,
-    Input,
-    InputGroup,
-    InputRightElement,
-    Icon,
-    Flex
-} from '@chakra-ui/react';
 import Container from '../components/Container';
 import { getAllFrontMatter } from '../lib/mdx';
-import { FaSearch } from 'react-icons/fa';
 import BlogPost from '../components/BlogPost';
 
-const description = 'Random discussion on my personal thoughts, projects and hobbies.';
+const description = 'Discussion on my personal thoughts, projects and hobbies.';
 
-function Blog({ posts }) {
-    const [searchValue, setSearchValue] = useState('');
-    const { colorMode } = useColorMode();
-    const secondaryTextColor = {
-        light: 'gray.700',
-        dark: 'gray.400'
-    };
+export default function Blog({ posts }) {
+	const sortedBlogPosts = posts
+		.sort((a, b) =>
+			Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+		);
 
-    const filteredBlogPosts = posts
-        .sort((a, b) =>
-                Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
-        )
-        .filter(frontMatter =>
-            frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
-        );
-
-    return (
-        <Container
-            title="Blog - Lav"
-            description={description}
-        >
-            <Center>
-                <Stack
-                    spacing={8}
-                    justifyContent="center"
-                    ml={3}
-                    mr={3}
-                >
-                    <Box
-                        align="center"
-                        justify="space-between"
-                    >
-                        <Heading>
-                            Blog
-                        </Heading>
-                        <Text mt={3} color={secondaryTextColor[colorMode]}>
-                            {description}
-                        </Text>
-
-                        <InputGroup my={4} mr={4} w="100%">
-                            <Input
-                                aria-label="Search for a blog post"
-                                placeholder="Search for a blog post"
-                                onChange={e => setSearchValue(e.target.value)}
-                            />
-                            <InputRightElement children={<Icon as={FaSearch} />} />
-                        </InputGroup>
-
-                        <Flex
-                            flexDirection="column"
-                            justifyContent="flex-start"
-                            alignItems="flex-start"
-                            mt={6}
-                        >
-                            <Heading letterSpacing="tight" mb={4} size="lg" fontWeight={700}>
-                                All Posts
-                            </Heading>
-                            {!filteredBlogPosts.length && 'No posts found.'}
-                            {filteredBlogPosts.map((frontMatter) => (
-                                <BlogPost key={frontMatter.title} {...frontMatter} />
-                            ))}
-                        </Flex>
-                    </Box>
-                </Stack>
-            </Center>
-        </Container>
-    )
+	return (
+		<Container
+			title="Blog - Lav"
+			description={description}
+		>
+			<div className="flex flex-col justify-center items-start max-w-2xl mx-auto">
+				<h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+					Blog
+				</h1>
+				<p className="text-gray-600 dark:text-gray-400">
+					{`${description} This list is sorted from latest to oldest, top to bottom.`}
+				</p>
+				{sortedBlogPosts.length ?
+					<h3 className="font-bold text-2xl mt-20 mb-6 md:text-4xl tracking-tight text-black dark:text-white">
+						All Posts
+					</h3>
+					: <p className="font-bold text-gray-600 dark:text-gray-400 mt-10">
+						No posts.
+					</p>}
+				{sortedBlogPosts.map(frontMatter => (
+					<BlogPost key={frontMatter.title} {...frontMatter} />
+				))}
+			</div>
+		</Container>
+	)
 }
 
 export async function getStaticProps() {
-    const posts = await getAllFrontMatter();
+	const posts = await getAllFrontMatter();
 
-    return { props: { posts } };
+	return { props: { posts } };
 }
-
-export default Blog;
