@@ -11,8 +11,10 @@ const CustomLink = props => {
             <Link href={href}>
                 <a {...props} />
             </Link>
-        )
+        );
     }
+
+    return <a target="_blank" rel="noopener noreferrer" {...props} />
 }
 
 const MDXComponents = {

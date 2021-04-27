@@ -9,10 +9,11 @@ export default function BlogLayout({ children, frontMatter }) {
 		<Container
 			title={`${frontMatter.title} - Lav`}
 			description={frontMatter.description}
+			image={`https://lavya.tech/static/images/${frontMatter.slug}/${frontMatter.image}`}
 			date={new Date(frontMatter.publishedAt).toISOString()}
 			type="article"
 		>
-			<article className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
+			<article className="flex flex-col justify-center items-start max-w-4xl mx-auto mb-16 w-full">
 				<h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
 					{frontMatter.title}
 				</h1>

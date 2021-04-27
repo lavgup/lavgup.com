@@ -7,8 +7,11 @@ export default function Tag({ posts, tag }) {
 	const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1);
 
 	return (
-		<Container>
-			<div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
+		<Container
+			title={`${tag} - Lav`}
+			description={`See all posts filtered under the ${tag} tag.`}
+		>
+			<div className="flex flex-col justify-center items-start max-w-4xl mx-auto mb-16">
 				<h1 className="font-bold text-3xl md:text-5xl tracking-tight">
 					{title}
 				</h1>

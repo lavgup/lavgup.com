@@ -6,6 +6,27 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        'soft-black': 'rgb(23,24,26)',
+        'nav-gray': 'rgb(220,220,224)',
+        'cool-gray': {
+          light: 'rgb(39,39,38)',
+          dark: 'rgb(39,39,58)'
+        },
+        'like': {
+          text: 'rgb(45,55,72)',
+          bg: 'rgb(198, 246, 213)',
+          'dtext': 'rgb(154,230,180)',
+          'dbg': 'rgba(154,230,180, 0.16)'
+        },
+        'dislike': {
+          text: 'rgb(130,39,39)',
+          bg: 'rgb(254,214,214)',
+          // dark mode
+          'dtext': 'rgb(254,178,178)',
+          'dbg': 'rgba(254,178,178, 0.16)'
+        }
+      },
       fontFamily: {
         sans: ['Inter', ...fontFamily.sans]
       },

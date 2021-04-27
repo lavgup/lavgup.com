@@ -34,8 +34,8 @@ html {
   position: sticky;
   z-index: 10;
   top: 0;
-  backdrop-filter: saturate(100%) blur(20px);
-  /*noinspection CssInvalidPropertyValue*/
+  backdrop-filter: saturate(180%) blur(20px);
+  /*noinspection CssInvalidPropertyValue */
   transition: background-color 0.1 ease-in-out;
 }
 
