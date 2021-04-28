@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from '../components/Container';
-import statuses from '../data/statuses';
 import useSWR from 'swr';
 import fetcher from '../lib/fetcher';
 
