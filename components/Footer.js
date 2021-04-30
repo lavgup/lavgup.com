@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer() {
 	const year = new Date().getFullYear();
 
@@ -9,7 +11,16 @@ export default function Footer() {
 					© {year} Lav
 				</p>
 				<div className="flex flex-row">
-					<ul className="col-4 col-sm-4 col-lg-4 col-xl-3 list-style-none pl-4">
+					<ul className="col-4 col-sm-4 col-lg-4 col-xl-3 list-style-none">
+						<li>
+							<Link href="/uses">
+								<a>/uses</a>
+							</Link>
+						</li>
+					</ul>
+				</div>
+				<div className="flex flex-row">
+					<ul className="col-4 col-sm-4 col-lg-4 col-xl-3 list-style-none">
 						<li>
 							<a href="https://github.com/lavgup">
 								GitHub

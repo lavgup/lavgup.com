@@ -29,7 +29,8 @@ export default function Blog({ posts }) {
 					</h3>
 					: <p className="font-bold text-gray-600 dark:text-gray-400 mt-10">
 						No posts.
-					</p>}
+					</p>
+				}
 				{sortedBlogPosts.map(frontMatter => (
 					<BlogPost key={frontMatter.title} {...frontMatter} />
 				))}

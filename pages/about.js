@@ -7,13 +7,13 @@ export default function About() {
 		'JavaScript', 'Node.js', 'React', 'Next.js', 'Vercel',
 		'Go', 'Java', 'Discord', 'MediaWiki', 'Apple', 'Badminton', 'Tennis',
 		'Physics', 'Mathematics', 'Comp Sci', 'Programming',
-		'Blogging', 'Reading', 'Rap', 'Grime'
+		'Blogging', 'Reading', 'Rap', 'Grime', 'Pizza', 'Sushi'
 	];
 
 	const dislikes = [
 		'Toxicity', 'K-Pop', 'TikTok', 'Basketball', 'Uninformed politics', 'Trump',
 		'Android', 'Facebook', 'Trolls', 'Chrome', 'Adobe CC', 'Reddit',
-		'Windows', 'Arch', 'Overpriced software'
+		'Windows', 'Arch', 'Caramel', 'Peanut butter'
 	];
 
 	return (
