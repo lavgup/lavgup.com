@@ -1,0 +1,12 @@
+{
+    "name": "Lav Gup",
+    "short_name": "lavya.tech",
+    "description": "Aussie student, hobby developer and badminton player.",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "display": "standalone",
+    "dir": "ltr",
+    "lang": "en-GB",
+    "orientation": "portrait-primary",
+    "start_url": "../../index.html"
+}

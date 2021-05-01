@@ -14,6 +14,7 @@ export default class MyDocument extends Document {
                         crossOrigin="anonymous"
                     />
                     <link href="/static/favicon.ico" rel="shortcut icon" />
+                    <link href="/static/site.webmanifest" rel="manifest" />
                     <link
                         rel="preconnect"
                         href="https://fonts.gstatic.com/"
