@@ -14,7 +14,9 @@ export default function Nav() {
 		<nav
 			className="sticky-nav bg-gray-100 dark:bg-soft-black flex justify-between items-center max-w-5xl w-full py-6 pr-4 my-0 md:my-8 mx-auto bg-opacity-60">
 			<NextLink href="/">
-				<a><Logo /></a>
+				<a aria-label="Go to home">
+					<Logo />
+				</a>
 			</NextLink>
 
 			<div className="flex justify-between">
