@@ -17,7 +17,7 @@ export default function Home() {
 
 					<button>
 						<a
-							href="mailto:https://lavyag01@gmail.com"
+							href="mailto:lavyag01@gmail.com"
 							className="rounded-md block mt-10 pb-2 pl-3 pr-3 pt-2 border border-black dark:border-gray-200 hover:bg-gray-200 dark:hover:bg-gray-900"
 						>
 							<p>Get in Touch</p>
