@@ -1,14 +1,13 @@
 import { getFileBySlug } from '../lib/mdx';
 import UsesLayout from '../layouts/uses';
-import hydrate from 'next-mdx-remote/hydrate';
-import MDXComponents from '../components/MDXComponents';
+import { MDXRemote } from 'next-mdx-remote';
 
 export default function Uses({ mdxSource, frontMatter }) {
-	const content = hydrate(mdxSource, {
-		components: MDXComponents
-	})
-
-	return <UsesLayout frontMatter={frontMatter}>{content}</UsesLayout>
+	return (
+		<UsesLayout frontMatter={frontMatter}>
+			<MDXRemote {...mdxSource} />
+		</UsesLayout>
+	);
 }
 
 export async function getStaticProps() {
