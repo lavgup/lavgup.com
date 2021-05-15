@@ -34,7 +34,7 @@ export default function Footer() {
 					</ul>
 					<ul className="col-4 col-sm-4 col-lg-4 col-xl-3 list-style-none pl-4">
 						<li>
-							<a href="https://twitter.com/lavxgup">
+							<a href="https://twitter.com/lavgup">
 								Twitter
 							</a>
 						</li>

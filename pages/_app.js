@@ -7,10 +7,10 @@ import MDXComponents from '../components/MDXComponents';
 
 export default function MyApp({ Component, pageProps }) {
 	return (
-		<ThemeProvider attribute="class" defaultTheme="system">
+		<ThemeProvider attribute='class' defaultTheme='system'>
 			<MDXProvider components={MDXComponents}>
 				<Component {...pageProps} />
 			</MDXProvider>
 		</ThemeProvider>
-	)
+	);
 }

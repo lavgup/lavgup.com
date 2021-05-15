@@ -11,14 +11,14 @@ export default function Tag({ posts, tag }) {
 			title={`${tag} - Lav`}
 			description={`See all posts filtered under the ${tag} tag.`}
 		>
-			<div className="flex flex-col justify-center items-start max-w-4xl mx-auto mb-16">
-				<h1 className="font-bold text-3xl md:text-5xl tracking-tight">
+			<div className='flex flex-col justify-center items-start max-w-4xl mx-auto mb-16'>
+				<h1 className='font-bold text-3xl md:text-5xl tracking-tight'>
 					{title}
 				</h1>
-				<h2 className="font-bold text-2xl md:text-4xl tracking-tight mt-6">
+				<h2 className='font-bold text-2xl md:text-4xl tracking-tight mt-6'>
 					All posts
 				</h2>
-				<hr className="w-full border-1 border-gray-200 dark:border-gray-800 mt-4 mb-8" />
+				<hr className='w-full border-1 border-gray-200 dark:border-gray-800 mt-4 mb-8' />
 				{posts.map(post => (
 					<BlogPost
 						key={post.title}

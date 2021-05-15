@@ -16,7 +16,7 @@ module.exports = {
                 source: '/(.*)',
                 headers: securityHeaders
             }
-        ]
+        ];
     },
     webpack: (config, { dev, isServer}) => {
         if (!dev && !isServer) {
@@ -24,12 +24,12 @@ module.exports = {
                 react: 'preact/compat',
                 'react-dom/test-utils': 'preact/test-utils',
                 'react-dom': 'preact/compat'
-            })
+            });
         }
 
         return config;
     }
-}
+};
 
 const ContentSecurityPolicy = `
   default-src 'self';

@@ -25,7 +25,7 @@ export default function About() {
 				<h1 className="font-bold text-3xl md:text-5xl tracking-tight">
 					About
 				</h1>
-				<p className="text-gray-600 dark:text-gray-400 mt-2">
+				<p className="prose dark:prose-dark text-gray-600 dark:text-gray-400 mt-2 max-w-none w-full">
 					Hey! I'm Lavya and I'm a high school student located in Newcastle, a city two hours away from
 					Sydney, Australia.
 					Apart from my school studies, I am enrolled in my local university, the University of Newcastle,
