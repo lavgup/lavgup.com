@@ -1,20 +1,15 @@
-import { useEffect } from 'react';
 import { ThemeProvider } from 'next-themes';
 import { MDXProvider } from '@mdx-js/react';
 
 import '../styles/globals.css';
 import MDXComponents from '../components/MDXComponents';
-import splitbee from '@splitbee/web';
+import { usePanelbear } from '../lib/analytics';
 
 export default function MyApp({ Component, pageProps }) {
-	useEffect(() => {
-		if (process.env.NODE_ENV === 'production') {
-			splitbee.init({
-				apiUrl: '/_hive',
-				scriptUrl: '/bee.js'
-			});
-		}
-	}, []);
+	usePanelbear(process.env.NEXT_PUBLIC_PANELBEAR_SITE_ID, {
+		scriptSrc: '/bear.js',
+		debug: false
+	});
 
 	return (
 		<ThemeProvider attribute="class" defaultTheme="system">

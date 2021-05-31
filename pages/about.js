@@ -11,7 +11,7 @@ export default function About() {
 	];
 
 	const dislikes = [
-		'Toxicity', 'K-Pop', 'TikTok', 'Basketball', 'Uninformed politics', 'Trump',
+		'Toxicity', 'K-Pop', 'TikTok', 'Basketball', 'Uninformed politics',
 		'Android', 'Facebook', 'Trolls', 'Chrome', 'Adobe CC', 'Reddit',
 		'Windows', 'Arch', 'Caramel', 'Peanut butter'
 	];
