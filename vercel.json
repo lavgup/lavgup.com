@@ -11,5 +11,11 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/bear.js",
+      "destination": "https://cdn.panelbear.com/analytics.js"
+    }
   ]
 }

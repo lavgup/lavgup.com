@@ -2,6 +2,10 @@ const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   mode: 'jit',
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true
+  },
   purge: ['./pages/**/*.js', './components/**/*.js', './layouts/**/*.js'],
   darkMode: 'class',
   theme: {
