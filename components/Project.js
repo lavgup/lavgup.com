@@ -15,7 +15,7 @@ export default function Project({ title, description, tag, href }) {
 						{title}
 					</h3>
 					<div
-						className="rounded text-gray-500 bg-gray-200 dark:bg-gray-600 dark:text-gray-300 px-1 ml-2">
+						className="rounded text-gray-500 bg-gray-300 dark:bg-gray-700 dark:text-gray-300 px-1 ml-2">
 						<p className="text-sm">
 							{tag}
 						</p>
