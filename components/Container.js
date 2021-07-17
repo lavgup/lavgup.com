@@ -9,7 +9,7 @@ export default function Container(props) {
 	const meta = {
 		title: 'Lav Gup - Aussie student',
 		description: 'Australian student with a passion to learn and explore the world-wide web.',
-		image: 'https://lavya.tech/static/banner.png',
+		image: 'https://lavya.me/static/banner.png',
 		type: 'website',
 		...customMeta
 	};
@@ -20,8 +20,8 @@ export default function Container(props) {
 				<title>{meta.title}</title>
 				<meta name="robots" content="follow, index" />
 				<meta content={meta.description} name="description" />
-				<meta property="og:url" content={`https://lavya.tech${router.asPath}`} />
-				<link rel="canonical" href={`https://lavya.tech${router.asPath}`} />
+				<meta property="og:url" content={`https://lavya.me${router.asPath}`} />
+				<link rel="canonical" href={`https://lavya.me${router.asPath}`} />
 				<meta property="og:type" content={meta.type} />
 				<meta property="og:site_name" content="Lavya Gupta" />
 				<meta property="og:description" content={meta.description} />

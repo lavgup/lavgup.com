@@ -9,7 +9,7 @@ export default function BlogLayout({ children, frontMatter }) {
 		<Container
 			title={`${frontMatter.title} - Lav`}
 			description={frontMatter.description}
-			image={`https://lavya.tech/static/images/${frontMatter.slug}/${frontMatter.image}`}
+			image={`https://lavya.me/static/images/${frontMatter.slug}/${frontMatter.image}`}
 			date={new Date(frontMatter.publishedAt).toISOString()}
 			type='article'
 		>
