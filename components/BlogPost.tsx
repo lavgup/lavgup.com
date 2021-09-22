@@ -1,8 +1,8 @@
-import React from 'react';
 import Link from 'next/link';
 import Tag from './Tag';
+import { Post } from 'lib/types';
 
-export default function BlogPost({ title, description, slug, tags }) {
+export default function BlogPost({ title, description, slug, tags }: Post) {
     return (
         <Link href={`/blog/${slug}`}>
             <a className="w-full">
@@ -15,7 +15,11 @@ export default function BlogPost({ title, description, slug, tags }) {
                     <p className="text-gray-600 dark:text-gray-400">{description}</p>
 	                <div className="flex justify-start mt-3">
 		                {tags.map(tag => (
-			                <Tag key={tag} tag={tag} />
+                                <Tag
+                                    key={tag}
+                                    tag={tag}
+                                    href={`/tags/${tag}`}
+                                />
 		                ))}
 	                </div>
                 </div>

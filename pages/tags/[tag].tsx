@@ -1,9 +1,14 @@
-import { getAllFrontMatter, getAllTags } from '../../lib/mdx';
-import Container from '../../components/Container';
-import React from 'react';
-import BlogPost from '../../components/BlogPost';
+import { getAllFrontMatter, getAllTags } from 'lib/mdx';
+import Container from 'components/Container';
+import BlogPost from 'components/BlogPost';
+import { Post } from 'lib/types';
 
-export default function Tag({ posts, tag }) {
+export default function Tag(
+	{ posts, tag }: {
+		posts: Post[],
+		tag: string
+	}
+) {
 	const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1);
 
 	return (
@@ -33,8 +38,12 @@ export default function Tag({ posts, tag }) {
 	);
 }
 
+interface Params {
+	params: { tag: string }
+}
+
 export async function getStaticPaths() {
-	const tags = await getAllTags();
+	const tags = getAllTags();
 
 	return {
 		paths: tags.map(tag => ({
@@ -46,8 +55,8 @@ export async function getStaticPaths() {
 	};
 }
 
-export async function getStaticProps({ params }) {
-	const allPosts = await getAllFrontMatter();
+export async function getStaticProps({ params }: Params) {
+	const allPosts = getAllFrontMatter();
 	const filteredPosts = allPosts.filter(
 		post => post.tags.map(t => t === params.tag)
 	);

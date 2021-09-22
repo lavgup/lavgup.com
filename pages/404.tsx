@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Container from '../components/Container';
+import Container from 'components/Container';
 import useSWR from 'swr';
-import fetcher from '../lib/fetcher';
+import { statusCodes } from '../data/statuses';
+import fetcher from 'lib/fetcher';
 
 export default function NotFound() {
-	const { data } = useSWR('/api/status', fetcher);
+	const { data } = useSWR<{ status: keyof typeof statusCodes }>('/api/status', fetcher);
 
 	return (
 		<Container title="404 - Lav">

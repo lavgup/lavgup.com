@@ -1,10 +1,13 @@
-import React from 'react';
 import { format, parseISO } from 'date-fns';
-import Container from '../components/Container';
-import Tag from '../components/Tag';
+import Container from 'components/Container';
+import Tag from 'components/Tag';
+import { ReactNode } from 'react';
+import { FrontMatter } from 'lib/types';
 
-export default function BlogLayout({ children, frontMatter }) {
-
+export default function BlogLayout({ children, frontMatter }: {
+	children: ReactNode,
+	frontMatter: FrontMatter
+}) {
 	return (
 		<Container
 			title={`${frontMatter.title} - Lav`}

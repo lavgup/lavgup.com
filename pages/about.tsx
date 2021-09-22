@@ -1,6 +1,6 @@
-import Container from '../components/Container';
-import Like from '../components/Like';
-import Dislike from '../components/Dislike';
+import Container from 'components/Container';
+import Like from 'components/Like';
+import Dislike from 'components/Dislike';
 
 export default function About() {
 	const likes = [
@@ -8,13 +8,13 @@ export default function About() {
 		'Go', 'Java', 'Discord', 'MediaWiki', 'Apple', 'Badminton', 'Tennis',
 		'Physics', 'Mathematics', 'Comp Sci', 'Programming',
 		'Blogging', 'Reading', 'Rap', 'Grime', 'Pizza', 'Sushi'
-	];
+	] as const;
 
 	const dislikes = [
 		'Toxicity', 'K-Pop', 'TikTok', 'Basketball', 'Uninformed politics',
 		'Android', 'Facebook', 'Trolls', 'Chrome', 'Adobe CC', 'Reddit',
 		'Windows', 'Arch', 'Caramel', 'Peanut butter'
-	];
+	] as const;
 
 	return (
 		<Container
@@ -67,7 +67,7 @@ export default function About() {
 				</h2>
 				<ul className="flex flex-wrap list-none p-0">
 					{dislikes.map(like => (
-						<li><Dislike key={like} like={like} /></li>
+						<li><Dislike key={like} dislike={like} /></li>
 					))}
 				</ul>
 			</div>

@@ -1,6 +1,7 @@
-import Container from '../components/Container';
+import Container from 'components/Container';
+import { ReactNode } from "react";
 
-export default function UsesLayout({ children }) {
+export default function UsesLayout({ children }: { children: ReactNode }) {
 	return (
 		<Container
 			title='Uses - Lav'

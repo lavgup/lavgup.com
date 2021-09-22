@@ -2,8 +2,18 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Nav from './Nav';
 import Footer from './Footer';
+import { ReactNode } from 'react';
 
-export default function Container(props) {
+interface Props {
+	children: ReactNode,
+	title?: string,
+	description?: string,
+	image?: string,
+	date?: string,
+	type?: string
+}
+
+export default function Container(props: Props) {
 	const { children, ...customMeta } = props;
 	const router = useRouter();
 	const meta = {
@@ -46,5 +56,5 @@ export default function Container(props) {
 				<Footer />
 			</main>
 		</div>
-	)
+	);
 }

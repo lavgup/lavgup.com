@@ -1,4 +1,4 @@
-const statusCodes = {
+export const statusCodes = {
 	'200': 'OK',
 	'201': 'Created',
 	'202': 'Accepted',
@@ -61,6 +61,4 @@ const statusCodes = {
 	'510': 'Not Extended',
 	'511': 'Network Authentication Required',
 	'599': 'Network connect timeout error'
-};
-
-export default statusCodes;
+} as const;

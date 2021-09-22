@@ -1,11 +1,12 @@
-import statuses from '../../data/statuses';
+import { statusCodes } from 'data/statuses';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default function handler(req, res) {
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
 	if (req.method !== 'GET') {
 		return res.send('Method not allowed.');
 	}
 
-	const keys = Object.keys(statuses);
+	const keys = Object.keys(statusCodes);
 	const status = keys[Math.floor(Math.random() * keys.length)];
 
 	res.setHeader(

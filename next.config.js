@@ -1,11 +1,8 @@
 module.exports = {
-    future: {
-        strictPostcssConfiguration: true
+    experimental: {
+        esmExternals: true
     },
     reactStrictMode: true,
-    experimental: {
-        turboMode: true
-    },
     images: {
         domains: ['http.cat']
     },
@@ -18,7 +15,7 @@ module.exports = {
         ];
     },
     webpack: (config, { dev, isServer}) => {
-        if (!dev && !isServer) {
+        if (!isServer && !dev) {
             Object.assign(config.resolve.alias, {
                 react: 'preact/compat',
                 'react-dom/test-utils': 'preact/test-utils',

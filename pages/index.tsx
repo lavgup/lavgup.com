@@ -1,5 +1,5 @@
-import Container from '../components/Container';
-import Project from '../components/Project';
+import Container from 'components/Container';
+import Project from 'components/Project';
 
 export default function Home() {
 	return (
@@ -23,14 +23,14 @@ export default function Home() {
 						</a>
 					</button>
 
-				<h2 className='font-bold text-2xl md:text-4xl tracking-tight mt-24 mb-6'>
+				<h2 className='font-bold text-2xl md:text-4xl tracking-tight mt-20 mb-6'>
 					Projects
 				</h2>
 				<Project
-					title='alexflipnote.go'
-					description='A modern and fast wrapper for the AlexFlipnote API in Go. Includes easy token authentication.'
-					href='https://github.com/lavgup/alexflipnote.go'
-					tag='wrapper'
+					title='Wiki Utilities'
+					description='Discord bot for taking administrative actions on a wiki through Discord. Delete, protect, edit pages.'
+					href='https://github.com/lavgup/wiki-utilities'
+					tag='bot'
 				/>
 				<Project
 					title='mediawiki.js'
@@ -39,10 +39,10 @@ export default function Home() {
 					tag='wrapper'
 				/>
 				<Project
-					title='Wiki Utilities'
-					description='Discord bot for taking administrative actions on a wiki through Discord. Delete, protect, edit pages.'
-					href='https://github.com/lavgup/wiki-utilities'
-					tag='bot'
+					title='alexflipnote.go'
+					description='A modern and fast wrapper for the AlexFlipnote API in Go. Includes easy token authentication.'
+					href='https://github.com/lavgup/alexflipnote.go'
+					tag='wrapper'
 				/>
 			</div>
 		</Container>

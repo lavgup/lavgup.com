@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import ImageWithBlur from 'components/ImageWithBlur';
+import { AnchorHTMLAttributes } from 'react';
 
-const CustomLink = props => {
+const CustomLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => {
     const href = props.href;
     const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
 
@@ -17,7 +18,7 @@ const CustomLink = props => {
 }
 
 const MDXComponents = {
-    Image,
+    Image: ImageWithBlur,
     a: CustomLink
 };
 
