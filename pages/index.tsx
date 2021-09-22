@@ -6,11 +6,11 @@ export default function Home() {
 		<Container>
 			<div className='flex flex-col justify-center items-start max-w-4xl mx-auto w-full mb-16'>
 					<h1 className='font-bold text-3xl md:text-5xl tracking-tight'>
-						Hi. I'm Lav.
+						Hi. I&apos;m Lav.
 					</h1>
 					<p className='prose dark:prose-dark text-gray-600 dark:text-gray-400 mt-2 max-w-none w-full'>
-						I'm an Australian student, badminton player and a hobby software developer.
-						When I'm not off at school or smashing shuttles on the court, I'm exploring the worldwide web
+						I&apos;m an Australian student, badminton player and a hobby software developer.
+						When I&apos;m not off at school or smashing shuttles on the court, I&apos;m exploring the worldwide web
 						and creating all sorts of stuff.
 					</p>
 

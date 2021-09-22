@@ -26,7 +26,7 @@ export default function About() {
 					About
 				</h1>
 				<p className="prose dark:prose-dark text-gray-600 dark:text-gray-400 mt-2 max-w-none w-full">
-					Hey! I'm Lavya and I'm a high school student located in Newcastle, a city two hours away from
+					Hey! I&apos;m Lavya and I&apos;m a high school student located in Newcastle, a city two hours away from
 					Sydney, Australia.
 					Apart from my school studies, I am enrolled in my local university, the University of Newcastle,
 					for
@@ -39,9 +39,9 @@ export default function About() {
 					picked up alongside soccer, rugby and tennis.
 					Due to court availability changes, I dropped badminton and started playing tennis, in which I
 					engaged with many tournaments around the city and earned a A$100 prize.
-					In that time, new badminton courts had been made (and coincidentally the tennis courts' owners
+					In that time, new badminton courts had been made (and coincidentally the tennis courts&apos; owners
 					lost
-					their lease!), so I started playing the sport again and I'm loving it.
+					their lease!), so I started playing the sport again and I&apos;m loving it.
 					<br /><br />
 					For my hobby, I develop software to help myself and others in their daily lives.
 					Why did I start writing code?
@@ -58,7 +58,7 @@ export default function About() {
 				</h2>
 				<ul className="flex flex-wrap list-none p-0">
 					{likes.map(like => (
-						<li><Like key={like} like={like} /></li>
+						<li key={like}><Like like={like} /></li>
 					))}
 				</ul>
 
@@ -66,8 +66,8 @@ export default function About() {
 					I dislike
 				</h2>
 				<ul className="flex flex-wrap list-none p-0">
-					{dislikes.map(like => (
-						<li><Dislike key={like} dislike={like} /></li>
+					{dislikes.map(dislike => (
+						<li key={dislike}><Dislike dislike={dislike} /></li>
 					))}
 				</ul>
 			</div>

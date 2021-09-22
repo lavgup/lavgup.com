@@ -9,6 +9,7 @@ export default function ImageWithBlur(props: ImageProps) {
 	const [isLoading, setLoading] = useState(true);
 
 	return (
+		// eslint-disable-next-line jsx-a11y/alt-text
 		<Image
 			{...props}
 			className={classNames(
