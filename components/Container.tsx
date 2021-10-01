@@ -47,9 +47,8 @@ export default function Container(props: Props) {
 				)}
 			</Head>
 
-
+			<Nav />
 			<main className="flex flex-col min-h-screen px-8">
-				<Nav />
 				<div className="flex-auto">
 					{children}
 				</div>

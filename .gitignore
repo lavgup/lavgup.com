@@ -1,30 +1,7 @@
-# dependencies
-node_modules/
-.pnp
-.pnp.js
-.pnpm-debug.log
-pnpm-lock.yaml
-
-# testing
-/coverage
-
-# next.js
 .next/
-out/
-
-# production
-build/
-
-# misc
-.DS_Store
-*.pem
 .idea/
 
-# local env files
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+node_modules/
 
-# vercel
-.vercel
+.env
+.pnpm-lock.yaml

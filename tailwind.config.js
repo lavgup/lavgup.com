@@ -15,7 +15,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				'soft-black': 'rgb(23,24,26)',
+				'soft-black': '#141415',
 				'nav-gray': 'rgb(220,220,224)',
 				'cool-gray': {
 					light: 'rgb(39,39,38)',

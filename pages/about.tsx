@@ -34,7 +34,7 @@ export default function About() {
 					Out of options including design and medicine courses, I chose a course I was very interested in
 					completing - Object Oriented Programming.
 					<br /><br />
-					To remain in shape, I play badminton 🏸 three times a week. Badminton was one of the first
+					To remain in shape, I play badminton three times a week. Badminton was one of the first
 					sports I
 					picked up alongside soccer, rugby and tennis.
 					Due to court availability changes, I dropped badminton and started playing tennis, in which I
