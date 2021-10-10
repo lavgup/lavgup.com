@@ -1,5 +1,5 @@
 import Container from 'components/Container';
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export default function UsesLayout({ children }: { children: ReactNode }) {
 	return (

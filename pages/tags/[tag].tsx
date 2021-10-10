@@ -1,11 +1,12 @@
-import { getAllFrontMatter, getAllTags } from 'lib/mdx';
 import Container from 'components/Container';
 import BlogPost from 'components/BlogPost';
-import { Post } from 'lib/types';
+
+import { allBlogs } from '.contentlayer/data';
+import { Blog } from '.contentlayer/types';
 
 export default function Tag(
 	{ posts, tag }: {
-		posts: Post[],
+		posts: Blog[],
 		tag: string
 	}
 ) {
@@ -43,12 +44,15 @@ interface Params {
 }
 
 export async function getStaticPaths() {
-	const tags = getAllTags();
+	const tags: string[] = [];
+	allBlogs.forEach(post =>
+		tags.push(...post.tags)
+	);
 
 	return {
-		paths: tags.map(tag => ({
+		paths: [...new Set(tags)].map(tag => ({
 			params: {
-				tag
+				tag: tag
 			}
 		})),
 		fallback: false
@@ -56,9 +60,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: Params) {
-	const allPosts = getAllFrontMatter();
-	const filteredPosts = allPosts.filter(
-		post => post.tags.map(t => t === params.tag)
+	const filteredPosts = allBlogs.filter(
+		post => post.tags.map(t => t.includes(params.tag))
 	);
 
 	return { props: { posts: filteredPosts, tag: params.tag } };

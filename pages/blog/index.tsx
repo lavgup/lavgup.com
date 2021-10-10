@@ -1,11 +1,12 @@
 import Container from 'components/Container';
-import { getAllFrontMatter } from 'lib/mdx';
+import { InferGetStaticPropsType } from 'next';
+import { allBlogs } from '.contentlayer/data';
+import { pick } from 'lib/utils';
 import BlogPost from 'components/BlogPost';
-import { FrontMatter } from 'lib/types';
 
 const description = 'Discussion on my personal thoughts, projects and hobbies.';
 
-export default function Blog({ posts }: { posts: FrontMatter[] }) {
+export default function Blog({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
 	const sortedBlogPosts = posts
 		.sort((a, b) =>
 			Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
@@ -31,8 +32,8 @@ export default function Blog({ posts }: { posts: FrontMatter[] }) {
 						No posts.
 					</p>
 				}
-				{sortedBlogPosts.map(frontMatter => (
-					<BlogPost key={frontMatter.title} {...frontMatter} />
+				{sortedBlogPosts.map(post => (
+					<BlogPost key={post.title} {...post} />
 				))}
 			</div>
 		</Container>
@@ -40,7 +41,9 @@ export default function Blog({ posts }: { posts: FrontMatter[] }) {
 }
 
 export async function getStaticProps() {
-	const posts = getAllFrontMatter();
+	const posts = allBlogs.map(post =>
+		pick(post, ['slug', 'title', 'description', 'publishedAt', 'tags'])
+	);
 
 	return { props: { posts } };
 }

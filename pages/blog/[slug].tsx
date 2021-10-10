@@ -1,20 +1,21 @@
 import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
-import { getFiles, getFileBySlug } from 'lib/mdx';
 import MDXComponents from 'components/MDXComponents';
 import BlogLayout from 'layouts/blog';
-import { FrontMatter } from "lib/types";
 
-interface Blog {
-	code: string,
-	frontMatter: FrontMatter
-}
+import { allBlogs } from '.contentlayer/data';
+import type { Blog } from '.contentlayer/types';
 
-export default function Blog({ code, frontMatter }: Blog) {
-	const Component = useMemo(() => getMDXComponent(code), [code]);
+export default function BlogPost(post: Blog) {
+	const Component = useMemo(
+		() => getMDXComponent(post.body.code),
+		[post.body.code]
+	);
+
+	if (!post) return null;
 
 	return (
-		<BlogLayout frontMatter={frontMatter}>
+		<BlogLayout post={post}>
 			<Component
 				// @ts-ignore
 				components={MDXComponents}
@@ -24,14 +25,8 @@ export default function Blog({ code, frontMatter }: Blog) {
 }
 
 export async function getStaticPaths() {
-	const posts = getFiles();
-
 	return {
-		paths: posts.map(p => ({
-			params: {
-				slug: p.replace('.mdx', '')
-			}
-		})),
+		paths: allBlogs.map(p => ({ params: { slug: p.slug } })),
 		fallback: false
 	};
 }
@@ -41,7 +36,7 @@ interface Params {
 }
 
 export async function getStaticProps({ params }: Params) {
-	const post = await getFileBySlug('blog', params.slug);
+	const post = allBlogs.find(post => post.slug === params.slug);
 
 	return { props: post };
 }

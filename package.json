@@ -11,14 +11,15 @@
   "dependencies": {
     "@panelbear/panelbear-js": "^1.3.2",
     "@tailwindcss/typography": "^0.4.1",
-    "autoprefixer": "^10.3.4",
+    "autoprefixer": "^10.3.7",
     "classnames": "^2.3.1",
-    "date-fns": "^2.24.0",
-    "gray-matter": "^4.0.3",
-    "mdx-bundler": "^6.0.1",
-    "next": "^11.1.2",
+    "contentlayer": "^0.0.27",
+    "date-fns": "^2.25.0",
+    "mdx-bundler": "^6.0.2",
+    "next": "^11.1.3-canary.54",
+    "next-contentlayer": "^0.0.27",
     "next-themes": "^0.0.15",
-    "postcss": "^8.3.6",
+    "postcss": "^8.3.9",
     "preact": "^10.5.14",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -30,15 +31,15 @@
     "rehype-slug": "^5.0.0",
     "remark-gfm": "^2.0.0",
     "swr": "^1.0.1",
-    "tailwindcss": "^2.2.15"
+    "tailwindcss": "^2.2.16"
   },
   "devDependencies": {
-    "@types/node": "^16.9.4",
-    "@types/react": "^17.0.22",
-    "esbuild": "^0.12.28",
+    "@types/node": "^16.10.3",
+    "@types/react": "^17.0.27",
+    "esbuild": "^0.13.4",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",
-    "prisma": "^3.1.1",
+    "prisma": "^3.2.1",
     "typescript": "^4.4.3"
   }
 }
