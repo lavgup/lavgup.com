@@ -13,14 +13,14 @@ export default function BlogLayout({ children, post }: PropsWithChildren<{ post:
 			date={new Date(post.publishedAt).toISOString()}
 			type='article'
 		>
-			<article className='flex flex-col justify-center items-start max-w-4xl mx-auto mb-16 w-full'>
-				<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
+			<article className='flex flex-col items-start justify-center w-full max-w-4xl mx-auto mb-16'>
+				<h1 className='mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white'>
 					{post.title}
 				</h1>
 				<p className='text-sm text-gray-700 dark:text-gray-300'>
 					{format(parseISO(post.publishedAt), 'MMMM dd, yyyy')}
 				</p>
-				<p className='text-sm text-gray-400 min-w-32 mt-3 md:mt-1'>
+				<p className='mt-3 text-sm text-gray-400 min-w-32 md:mt-1'>
 					{post.readingTime.text}
 				</p>
 				<div className='flex justify-start mt-3'>
@@ -28,8 +28,8 @@ export default function BlogLayout({ children, post }: PropsWithChildren<{ post:
 						<Tag key={tag} tag={tag} href={`/tags/${tag}`} />
 					))}
 				</div>
-				<hr className='w-full border-1 border-gray-200 dark:border-gray-800 mt-6' />
-				<div className='prose dark:prose-dark dark:text-gray-400 max-w-none w-full'>
+				<hr className='w-full mt-6 border-gray-200 border-1 dark:border-gray-800' />
+				<div className='w-full prose max-w-none dark:prose-dark dark:text-gray-400'>
 					{children}
 				</div>
 			</article>

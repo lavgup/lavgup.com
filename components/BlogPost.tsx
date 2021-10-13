@@ -1,14 +1,15 @@
 import Link from 'next/link';
 import Tag from './Tag';
-import { Post } from 'lib/types';
 
-export default function BlogPost({ title, description, slug, tags }: Post) {
+import { Blog } from '.contentlayer/types';
+
+export default function BlogPost({ title, description, slug, tags }: Blog) {
     return (
         <Link href={`/blog/${slug}`}>
             <a className="w-full">
-                <div className="mb-8">
-                    <div className="flex flex-col md:flex-row justify-between">
-                        <h4 className="text-lg md:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-100">
+                <div className="w-full mb-8">
+                    <div className="flex flex-col justify-between md:flex-row">
+                        <h4 className="w-full mb-2 text-lg font-medium text-gray-900 md:text-xl dark:text-gray-100">
                             {title}
                         </h4>
                     </div>

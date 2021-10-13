@@ -12,7 +12,7 @@ export default function Nav() {
 
 	return (
 		<nav
-			className="sticky-nav bg-gray-100 dark:bg-soft-black flex justify-between items-center max-w-5xl w-full py-4 pr-4 my-0 md:my-6 mx-auto bg-opacity-60">
+			className="flex items-center justify-between w-full max-w-5xl py-4 pr-4 mx-auto my-0 bg-gray-100 bg-opacity-60 sticky-nav dark:bg-soft-black md:my-6">
 			<NextLink href="/">
 				<a aria-label="Go to home" className="ml-6">
 					<Logo />

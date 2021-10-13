@@ -17,22 +17,16 @@ export default function Tag(
 			title={`${tag} - Lav`}
 			description={`See all posts filtered under the ${tag} tag.`}
 		>
-			<div className='flex flex-col justify-center items-start max-w-4xl mx-auto mb-16'>
-				<h1 className='font-bold text-3xl md:text-5xl tracking-tight'>
+			<div className='flex flex-col items-start justify-center max-w-4xl mx-auto mb-16'>
+				<h1 className='text-3xl font-bold tracking-tight md:text-5xl'>
 					{title}
 				</h1>
-				<h2 className='font-bold text-2xl md:text-4xl tracking-tight mt-6'>
+				<h2 className='mt-6 text-2xl font-bold tracking-tight md:text-4xl'>
 					All posts
 				</h2>
-				<hr className='w-full border-1 border-gray-200 dark:border-gray-800 mt-4 mb-8' />
+				<hr className='w-full mt-4 mb-8 border-gray-200 border-1 dark:border-gray-800' />
 				{posts.map(post => (
-					<BlogPost
-						key={post.title}
-						title={post.title}
-						description={post.description}
-						slug={post.slug}
-						tags={post.tags}
-					/>
+					<BlogPost key={post.title} {...post} />
 				))}
 			</div>
 		</Container>

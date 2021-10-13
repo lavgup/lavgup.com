@@ -21,11 +21,11 @@ export default function About() {
 			title="About - Lav"
 			description="A description of me, what I like and what I dislike."
 		>
-			<div className="flex flex-col justify-center items-start max-w-4xl mx-auto mb-16">
-				<h1 className="font-bold text-3xl md:text-5xl tracking-tight">
+			<div className="flex flex-col items-start justify-center max-w-4xl mx-auto mb-16">
+				<h1 className="text-3xl font-bold tracking-tight md:text-5xl">
 					About
 				</h1>
-				<p className="prose dark:prose-dark text-gray-600 dark:text-gray-400 mt-2 max-w-none w-full">
+				<p className="w-full mt-2 text-gray-600 max-w-none prose dark:prose-dark dark:text-gray-400">
 					Hey! I&apos;m Lavya and I&apos;m a high school student located in Newcastle, a city two hours away from
 					Sydney, Australia.
 					Apart from my school studies, I am enrolled in my local university, the University of Newcastle,
@@ -53,19 +53,19 @@ export default function About() {
 					cent.
 				</p>
 
-				<h2 className="font-bold text-2xl md:text-4xl tracking-tight mt-16 mb-2">
+				<h2 className="mt-16 mb-2 text-2xl font-bold tracking-tight md:text-4xl">
 					I like
 				</h2>
-				<ul className="flex flex-wrap list-none p-0">
+				<ul className="flex flex-wrap p-0 list-none">
 					{likes.map(like => (
 						<li key={like}><Like like={like} /></li>
 					))}
 				</ul>
 
-				<h2 className="font-bold text-2xl md:text-4xl tracking-tight mt-16 mb-2">
+				<h2 className="mt-16 mb-2 text-2xl font-bold tracking-tight md:text-4xl">
 					I dislike
 				</h2>
-				<ul className="flex flex-wrap list-none p-0">
+				<ul className="flex flex-wrap p-0 list-none">
 					{dislikes.map(dislike => (
 						<li key={dislike}><Dislike dislike={dislike} /></li>
 					))}

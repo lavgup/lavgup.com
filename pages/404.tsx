@@ -10,22 +10,22 @@ export default function NotFound() {
 
 	return (
 		<Container title="404 - Lav">
-			<div className="flex flex-col justify-center items-start max-w-4xl mx-auto mb-16">
-				<h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+			<div className="flex flex-col items-start justify-center max-w-4xl mx-auto mb-16">
+				<h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
 					404
 				</h1>
-				<p className="text-gray-600 dark:text-gray-400 mb-8">
+				<p className="mb-8 text-gray-600 dark:text-gray-400">
 					This page doesn&apos;t exist. You&apos;ve either followed a link to a page that has since been deleted or misspelled the URL.
 					Is the spelling 💯?
 				</p>
 
 				<Link href="/">
-					<a className="p-1 sm:p-4 w-40 mb-8 font-bold bg-gray-200 dark:bg-gray-600 text-center rounded-md text-black dark:text-white">
+					<a className="w-40 p-1 mb-8 font-bold text-center text-black bg-gray-200 rounded-md sm:p-4 dark:bg-gray-600 dark:text-white">
 						Go back home
 					</a>
 				</Link>
 
-				<p className="text-gray-600 dark:text-gray-400 mb-8">
+				<p className="mb-8 text-gray-600 dark:text-gray-400">
 					For your entertainment, here&apos;s a random HTTP catus code.
 				</p>
 				<Image

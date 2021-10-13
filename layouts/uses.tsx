@@ -7,8 +7,8 @@ export default function UsesLayout({ children }: { children: ReactNode }) {
 			title='Uses - Lav'
 			description="What I'm using regularly for productivity, schoolwork and programming."
 		>
-			<article className='flex flex-col justify-center items-start max-w-4xl mx-auto mb-16'>
-				<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
+			<article className='flex flex-col items-start justify-center max-w-4xl mx-auto mb-16'>
+				<h1 className='mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white'>
 					My setup
 				</h1>
 				<p className='prose dark:prose-dark'>
