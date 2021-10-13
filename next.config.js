@@ -1,6 +1,7 @@
 const { withContentlayer } = require('next-contentlayer');
 
-module.exports = withContentlayer()({
+/** @type {import('next').NextConfig} */
+const config = {
     experimental: {
         esmExternals: true
     },
@@ -35,7 +36,9 @@ module.exports = withContentlayer()({
             }
         ];
     }
-});
+}
+
+module.exports = withContentlayer()(config);
 
 const ContentSecurityPolicy = `
   default-src 'self';
