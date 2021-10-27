@@ -26,23 +26,19 @@ export default function About() {
 					About
 				</h1>
 				<p className="w-full mt-2 text-gray-600 max-w-none prose dark:prose-dark dark:text-gray-400">
-					Hey! I&apos;m Lavya and I&apos;m a high school student located in Newcastle, a city two hours away from
-					Sydney, Australia.
-					Apart from my school studies, I am enrolled in my local university, the University of Newcastle,
-					for
-					a high-performing students program.
-					Out of options including design and medicine courses, I chose a course I was very interested in
-					completing - Object Oriented Programming.
-					<br /><br />
-					To remain in shape, I play badminton three times a week. Badminton was one of the first
-					sports I
-					picked up alongside soccer, rugby and tennis.
-					Due to court availability changes, I dropped badminton and started playing tennis, in which I
-					engaged with many tournaments around the city and earned a A$100 prize.
-					In that time, new badminton courts had been made (and coincidentally the tennis courts&apos; owners
-					lost
-					their lease!), so I started playing the sport again and I&apos;m loving it.
-					<br /><br />
+					Hey! I&apos;m Lavya and I&apos;m a high school student located in Newcastle, a city two hours away from Sydney, Australia.
+					Apart from my school studies, I am enrolled in my local university, the University of Newcastle, for a high-performing students program.
+					Out of options including design and medicine courses, I chose a course I was very interested in completing - Object Oriented Programming.
+
+	                <br />
+					<br />
+					To remain in shape, I play badminton three times a week. Badminton was one of the first sports I picked up alongside soccer, rugby and tennis.
+					Due to court availability changes, I dropped badminton and started playing tennis, in which I engaged with many tournaments around the city and earned a A$100 prize.
+					In that time, new badminton courts had been made (and coincidentally the original tennis court managers lost their lease!), so I started playing the sport again and I&apos;m loving it.
+
+					<br />
+					<br />
+
 					For my hobby, I develop software to help myself and others in their daily lives.
 					Why did I start writing code?
 					Just to have the freedom.

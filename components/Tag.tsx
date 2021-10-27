@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Link from 'next/link';
 
 export default function Tag(
@@ -8,7 +8,7 @@ export default function Tag(
 		href?: string
 	}
 ) {
-	const className = classNames('rounded-md text-gray-500 bg-gray-200 dark:bg-gray-600 dark:text-gray-300 mr-1', {
+	const className = cn('rounded-md text-gray-500 bg-gray-200 dark:bg-gray-600 dark:text-gray-300 mr-1', {
 		'text-sm px-1 px-1.5': small,
 		'px-2': !small
 	});

@@ -17,7 +17,7 @@ export default function Home() {
 					<button>
 						<a
 							href='mailto:lavyag01@gmail.com'
-							className='block pt-2 pb-2 pl-3 pr-3 mt-10 border border-gray-300 rounded-md dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-900'
+							className='block pt-2 pb-2 pl-3 pr-3 mt-10 border-2 border-solid border-gray-300 rounded-md dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-900'
 						>
 							<p>Get in Touch</p>
 						</a>
