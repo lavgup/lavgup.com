@@ -1,5 +1,4 @@
-import { useMemo } from 'react';
-import { getMDXComponent } from 'mdx-bundler/client';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 import MDXComponents from 'components/MDXComponents';
 import BlogLayout from 'layouts/blog';
 
@@ -7,10 +6,7 @@ import { allBlogs } from '.contentlayer/data';
 import type { Blog } from '.contentlayer/types';
 
 export default function BlogPost(post: Blog) {
-	const Component = useMemo(
-		() => getMDXComponent(post.body.code),
-		[post.body.code]
-	);
+	const Component = useMDXComponent(post.body.code);
 
 	if (!post) return null;
 
