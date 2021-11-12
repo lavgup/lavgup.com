@@ -34,7 +34,7 @@ export default function About() {
 					<br />
 					To remain in shape, I play badminton three times a week. Badminton was one of the first sports I picked up alongside soccer, rugby and tennis.
 					Due to court availability changes, I dropped badminton and started playing tennis, in which I engaged with many tournaments around the city and earned a A$100 prize.
-					In that time, new badminton courts had been made (and coincidentally the original tennis court managers lost their lease!), so I started playing the sport again and I&apos;m loving it.
+					In that time, I had found interest in badminton again (and coincidentally the original tennis court managers lost their lease!), so I started playing the sport again and I&apos;m loving it.
 
 					<br />
 					<br />

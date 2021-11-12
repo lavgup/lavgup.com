@@ -50,11 +50,9 @@ export default function Container(props: Props) {
 			</Head>
 
 			<Nav />
-			<main className="flex flex-col min-h-screen px-8">
+			<main className="flex flex-col px-8">
 				<PageTransition>
-					<div className="flex-auto">
-						{children}
-					</div>
+					{children}
 				</PageTransition>
 				<Footer />
 			</main>
