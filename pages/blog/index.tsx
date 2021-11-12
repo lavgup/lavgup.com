@@ -18,7 +18,7 @@ export default function Blog({ posts }: { posts: BlogType[] }) {
 			title='Blog - Lav'
 			description={description}
 		>
-			<div className='flex flex-col items-start justify-center max-w-4xl mx-auto'>
+			<div className='max-w-4xl mx-auto'>
 				<h1 className='mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white'>
 					Blog
 				</h1>

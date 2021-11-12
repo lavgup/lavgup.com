@@ -1,8 +1,10 @@
+import { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+
 import Nav from './Nav';
 import Footer from './Footer';
-import { ReactNode } from 'react';
+import PageTransition from './PageTransition';
 
 interface Props {
 	children: ReactNode,
@@ -48,10 +50,10 @@ export default function Container(props: Props) {
 			</Head>
 
 			<Nav />
-			<main className="flex flex-col min-h-screen px-8">
-				<div className="flex-auto">
+			<main className="flex flex-col px-8">
+				<PageTransition>
 					{children}
-				</div>
+				</PageTransition>
 				<Footer />
 			</main>
 		</div>
