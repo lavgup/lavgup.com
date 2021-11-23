@@ -17,7 +17,7 @@ export default function Project({ title, description, tag, href }: Project) {
 			rel={'noopener noreferrer'}
 		>
 			<div className="items-center p-4 border border-gray-300 rounded dark:border-gray-800">
-				<div className="flex items-start justify-start">
+				<div className="flex flex-row align-middle">
 					<h3 className="text-lg font-semibold tracking-tight text-gray-900 leading-6 dark:text-gray-100">
 						{title}
 					</h3>

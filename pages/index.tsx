@@ -27,16 +27,16 @@ export default function Home() {
 					Projects
 				</h2>
 				<Project
+					title='Apple Domains'
+					description='Find a wide variety of domains owned by Apple with a readable and configurable list.'
+					href='https://github.com/lavgup/mediawiki.js'
+					tag='app'
+				/>
+				<Project
 					title='Wiki Utilities'
 					description='Discord bot for taking administrative actions on a wiki through Discord. Delete, protect, edit pages.'
 					href='https://github.com/lavgup/wiki-utilities'
 					tag='bot'
-				/>
-				<Project
-					title='mediawiki.js'
-					description='A simplistic client library in TypeScript for the MediaWiki API, compiled for use in Node programs.'
-					href='https://github.com/lavgup/mediawiki.js'
-					tag='wrapper'
 				/>
 				<Project
 					title='alexflipnote.go'
