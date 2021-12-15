@@ -1,11 +1,13 @@
 ## lavya.me
-My personal portfolio built with React, Next.js and TailwindCSS.
+Personal portfolio website.
 
-### Running
-```shell
-$ git clone https://github.com/lavgup/lavya.me && cd lavya.me
+Most of the content on the site is pulled from Notion, as I don't enjoy the MDX/Git workflow.
 
-$ pnpm install
-
-$ pnpm dev
-```
+### Stack
+* [React](https://reactjs.org/)
+* [Next.js](https://nextjs.org/)
+* [Vercel](https://vercel.com/)
+* [Tailwind CSS](https://tailwindcss.com/)
+* [Headless UI](https://headlessui.dev/)
+* [Notion](https://developers.notion.com/)
+* [Panelbear](https://panelbear.com/)

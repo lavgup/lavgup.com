@@ -1,50 +1,100 @@
 import Container from 'components/Container';
-import { allBlogs } from '.contentlayer/data';
-import { pick } from 'lib/utils';
-import BlogPost from 'components/BlogPost';
 
-import { Blog as BlogType } from '.contentlayer/types';
+import { getPosts } from '../../lib/notion';
+import SearchIcon from '../../components/icons/Search';
+import { useState } from 'react';
+import { InferGetStaticPropsType } from 'next';
+import BlogCard from '../../components/BlogCard';
+import Tag from '../../components/Tag';
 
 const description = 'Discussion on my personal thoughts, projects and hobbies.';
 
-export default function Blog({ posts }: { posts: BlogType[] }) {
-	const sortedBlogPosts = posts
+export interface BlogPost {
+	title: string,
+	description: string,
+	tags: string[],
+	slug: string,
+	publishedAt: string
+}
+
+export default function Blog({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
+	const [searchValue, setSearchValue] = useState('');
+
+	const tags = posts.map(p => p.tags).flat();
+
+	let sorted = posts
 		.sort((a, b) =>
 			Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
 		);
 
+	if (searchValue?.length) {
+		sorted = sorted.filter(post => {
+			return post.title.toLowerCase()
+				.includes(
+					searchValue.toLowerCase()
+						.trim()
+				);
+		});
+	}
+
 	return (
 		<Container
-			title='Blog - Lav'
+			title="Blog - Lav"
 			description={description}
+			rss
 		>
-			<div className='max-w-4xl mx-auto'>
-				<h1 className='mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white'>
-					Blog
-				</h1>
-				<p className='text-gray-600 dark:text-gray-400'>
-					{`${description} This list is sorted from latest to oldest, top to bottom.`}
-				</p>
-				{sortedBlogPosts.length ?
-					<h3 className='mt-10 mb-6 text-2xl font-bold tracking-tight text-black md:mt-20 md:text-4xl dark:text-white'>
-						All Posts
-					</h3>
-					: <p className='mt-10 font-bold text-gray-600 dark:text-gray-400'>
-						No posts.
-					</p>
-				}
-				{sortedBlogPosts.map(post => (
-					<BlogPost key={post.title} {...post} />
-				))}
+			<h1 className="text-4xl font-bold">
+				Blog
+			</h1>
+			<p className="mt-3">
+				Discussion on my personal thoughts, projects and hobbies.
+			</p>
+
+			<div className="relative items-center">
+				<SearchIcon className="absolute text-gray-400 w-[1.15rem] h-[1.15rem] left-2 top-[1.275rem] dark:text-gray-300 transition ease-in-out duration-500" />
+
+				<input
+					type="search"
+					className="
+						max-w-full py-1 px-1.5 pl-8 mt-3 bg-transparent w-96 rounded-md border border-md border-orange-200/40 dark:border-orange-400/20
+						transition ease-in-out duration-500
+					"
+					placeholder="Search"
+					onChange={e => setSearchValue(e.target.value)}
+				/>
 			</div>
+
+			<ol className="flex flex-row flex-wrap mt-5 gap-2 transition">
+				{tags.map((el, idx) => (
+					<li key={idx}>
+						<Tag tag={el} />
+					</li>
+				))}
+			</ol>
+
+			<div className="flex flex-row items-baseline mt-10">
+				<h1 className="text-3xl font-bold">
+					All Posts
+				</h1>
+			</div>
+			<ol>
+				{sorted.map((post, idx) => (
+					<li key={idx} className="mt-3">
+						<BlogCard post={post} />
+					</li>
+				))}
+			</ol>
 		</Container>
 	);
 }
 
 export async function getStaticProps() {
-	const posts = allBlogs.map(post =>
-		pick(post, ['slug', 'title', 'description', 'publishedAt', 'tags'])
-	);
+	const pages = await getPosts(process.env.NOTION_BLOG_ID as string);
 
-	return { props: { posts } };
+	return {
+		props: {
+			posts: pages
+		},
+		revalidate: 60
+	};
 }

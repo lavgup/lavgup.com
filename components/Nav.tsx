@@ -1,33 +1,82 @@
-import NextLink from 'next/link';
-import React, { useEffect, useState } from 'react';
-import { useTheme } from 'next-themes';
-import Logo from './Logo';
-import ThemeButton from './ThemeButton';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import clsx from 'clsx';
+import Palette from './command/Palette';
+
+const pages = [
+	{
+		title: 'Home',
+		href: '/'
+	},
+	{
+		title: 'About',
+		href: '/about'
+	},
+	{
+		title: 'Blog',
+		href: '/blog'
+	}
+];
 
 export default function Nav() {
+	const { pathname } = useRouter();
 	const [mounted, setMounted] = useState(false);
-	const { resolvedTheme, setTheme } = useTheme();
 
-	useEffect(() => setMounted(true), []);
+	useEffect(() => setMounted(true), [mounted, setMounted]);
 
 	return (
 		<nav
-			className="flex items-center justify-between w-full max-w-5xl py-4 pr-4 mx-auto my-0 bg-gray-100 bg-opacity-60 sticky-nav dark:bg-soft-black md:my-6">
-			<NextLink href="/">
-				<a aria-label="Go to home" className="ml-6">
-					<Logo />
+			className="flex justify-between w-full py-3 mx-auto transition ease-in-out duration-500"
+		>
+			<Link href="/">
+				<a className="flex-shrink-0">
+					<Image
+						src="/static/images/llama.png"
+						height="50"
+						width="50"
+						className="rounded-full h-14 w-14"
+						alt="Lav's llama avatar"
+					/>
 				</a>
-			</NextLink>
+			</Link>
 
-			<div className="flex justify-between">
-				{mounted && <ThemeButton resolvedTheme={resolvedTheme} setTheme={setTheme} />}
-				<NextLink href="/about">
-					<a className={`ml-2 bg-nav-gray dark:bg-cool-gray-light text-black dark:text-white hover:bg-gray-300 dark:hover:bg-cool-gray-dark px-3 py-2.5 mt-2 h-10 text-sm font-semibold rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline`}>About</a>
-				</NextLink>
-				<NextLink href="/blog">
-					<a className={`ml-2 bg-nav-gray dark:bg-cool-gray-light text-black dark:text-white hover:bg-gray-300 dark:hover:bg-cool-gray-dark px-3 py-2.5 mt-2 h-10 text-sm font-semibold rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline`}>Blog</a>
-				</NextLink>
+			<div className="flex flex-row items-center flex-shrink w-full mt-2 justify-evenly">
+				{pages.map((el, idx) => {
+					return <NavLink
+						key={idx}
+						text={el.title}
+						href={el.href}
+						active={pathname === el.href}
+					/>;
+				})}
+			</div>
+
+			<div className="mt-5 pr-1.5">
+				<Palette />
 			</div>
 		</nav>
+	);
+}
+
+function NavLink({ text, href, active = false }: {
+	href: string,
+	text: string,
+	active?: boolean
+}) {
+	const className = clsx(
+		'tracking-[0.005em] font-bold capitalize transform-gpu',
+		active && 'shadow-nav dark:shadow-nav-dark'
+	);
+
+	return (
+		<Link href={href}>
+			<a
+				className={className}
+			>
+				{text}
+			</a>
+		</Link>
 	);
 }

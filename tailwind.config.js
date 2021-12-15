@@ -1,37 +1,37 @@
 const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
 
+
 module.exports = {
-	mode: 'jit',
 	future: {
 		removeDeprecatedGapUtilities: true,
 		purgeLayersByDefault: true
 	},
-	purge: [
+	content: [
 		'./pages/**/*.{js,ts,jsx,tsx}',
 		'./components/**/*.{js,ts,jsx,tsx}',
-		'./layouts/**/*.{js,ts,jsx,tsx}'
+		'./lib/**/*.{jsx,tsx}',
 	],
 	darkMode: 'class',
 	theme: {
 		extend: {
+			boxShadow: theme => ({
+				'nav': '0 3px 0 #000',
+				'nav-dark': `0 3px 0 ${theme('colors.gray.200')}`
+			}),
 			colors: {
+				'red': {
+					'150': 'rgba(254, 210, 210, 1)',
+					'text': {
+						DEFAULT: 'rgb(130,39,39)',
+						dark: 'rgb(254,178,178)'
+					},
+					'10': 'rgba(254,178,178, 0.16)'
+				},
 				'soft-black': '#141415',
 				'nav-gray': 'rgb(220,220,224)',
 				'cool-gray': {
 					light: 'rgb(39,39,38)',
 					dark: 'rgb(39,39,58)'
-				},
-				like: {
-					text: 'rgb(45,55,72)',
-					bg: 'rgb(198, 246, 213)',
-					dtext: 'rgb(154,230,180)',
-					dbg: 'rgba(154,230,180, 0.16)'
-				},
-				dislike: {
-					text: 'rgb(130,39,39)',
-					bg: 'rgb(254,214,214)',
-					dtext: 'rgb(254,178,178)',
-					dbg: 'rgba(254,178,178, 0.16)'
 				}
 			},
 			fontFamily: {

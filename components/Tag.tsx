@@ -1,31 +1,11 @@
-import cn from 'classnames';
 import Link from 'next/link';
 
-export default function Tag(
-	{ tag, small = false, href }: {
-		tag: string,
-		small?: boolean,
-		href?: string
-	}
-) {
-	const className = cn('rounded-md text-gray-500 bg-gray-200 dark:bg-gray-600 dark:text-gray-300 mr-1', {
-		'text-sm px-1 px-1.5': small,
-		'px-2': !small
-	});
-
-	const body = (
-		<div className={className}>
-			{tag}
-		</div>
+export default function Tag({ tag }: { tag: string }) {
+	return (
+		<Link href={`/blog/tag/${tag}`}>
+			<a className="rounded rounded-xl py-1 px-1.5 ease-in-out duration-500 bg-orange-200/60 text-orange-800/70 dark:bg-orange-500/20 dark:text-orange-400/[.65] hover:bg-orange-200/90 dark:hover:bg-orange-500/30">
+				{tag}
+			</a>
+		</Link>
 	);
-
-	if (href) {
-		return (
-			<Link href={href}>
-				<a>
-					{body}
-				</a>
-			</Link>
-		);
-	} else return body;
 }

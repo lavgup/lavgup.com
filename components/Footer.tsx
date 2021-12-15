@@ -1,51 +1,40 @@
 import Link from 'next/link';
 
 export default function Footer() {
-	const year = new Date().getFullYear();
-
 	return (
-		<footer className="flex flex-col items-start justify-center w-full max-w-4xl mx-auto mb-8">
-			<hr className="w-full mb-8 border-gray-200 border-1 dark:border-gray-800" />
-			<div className="flex justify-between w-full text-gray-600 dark:text-gray-400">
-				<p>
-					© {year} Lav
-				</p>
-				<div className="flex flex-row">
-					<ul className="col-4 col-sm-4 col-lg-4 col-xl-3 list-style-none">
-						<li>
-							<Link href="/uses">
-								<a>/uses</a>
-							</Link>
-						</li>
-					</ul>
+		<footer className="mt-16 bg-inherit">
+			<hr className="mb-8 w-full border-gray-300 transition duration-500 ease-in-out border-1 dark:border-gray-800" />
+
+			<div className="flex justify-between px-3 transition duration-100 ease-in-out">
+				<div className="flex flex-col gap-2">
+					<StyledLink href="/" text="Home" />
+					<StyledLink href="/about" text="About" />
+					<StyledLink href="/blog" text="Blog" />
 				</div>
-				<div className="flex flex-row">
-					<ul className="col-4 col-sm-4 col-lg-4 col-xl-3 list-style-none">
-						<li>
-							<a href="https://github.com/lavgup">
-								GitHub
-							</a>
-						</li>
-						<li>
-							<a href="https://discord.com/invite/3hsdQhYVKT">
-								Discord
-							</a>
-						</li>
-					</ul>
-					<ul className="pl-4 col-4 col-sm-4 col-lg-4 col-xl-3 list-style-none">
-						<li>
-							<a href="https://twitter.com/lavgup">
-								Twitter
-							</a>
-						</li>
-						<li>
-							<a href="mailto:lavyag01@gmail.com">
-								Email
-							</a>
-						</li>
-					</ul>
+
+				<div className="flex flex-col gap-2">
+					<StyledLink href="https://github.com/lavgup" text="GitHub" />
+					<StyledLink href="https://twitter.com/lavgup" text="Twitter" />
+					<StyledLink href="mailto:lavyag01@gmail.com" text="Email" />
+				</div>
+
+				<div className="flex flex-col gap-2">
+					<StyledLink href="/stack" text="Stack" />
+					<StyledLink href="/words" text="Words" />
 				</div>
 			</div>
+
+			<div className="my-10 text-center dark:text-gray-400">
+				&copy; Lav {new Date().getFullYear()}
+			</div>
 		</footer>
+	);
+}
+
+function StyledLink({ href, text}: { href: string, text: string }) {
+	return (
+		<Link href={href}>
+			<a className="text-gray-600 dark:text-zinc-300/90 hover:text-gray-400 dark:hover:text-gray-200/90">{text}</a>
+		</Link>
 	);
 }

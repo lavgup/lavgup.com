@@ -1,29 +1,73 @@
-import { useMDXComponent } from 'next-contentlayer/hooks';
-import MDXComponents from 'components/MDXComponents';
-import BlogLayout from 'layouts/blog';
+import { Fragment } from 'react';
+import { InferGetStaticPropsType } from 'next';
+import { ExtractedPropertyValue } from '../../lib/utils';
+import { getBlocks, getDatabase, getPage } from '../../lib/notion';
+import { renderBlock} from '../../lib/notion/renderer';
+import Container from '../../components/Container';
+import { NotionIcon } from '../../components/icons/Notion';
+import { ListBlockChildrenResponse, QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
+import BackArrow from '../../components/BackArrow';
 
-import { allBlogs } from '.contentlayer/data';
-import type { Blog } from '.contentlayer/types';
+export default function BlogPost({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>) {
+	if (!page || !blocks) return null;
 
-export default function BlogPost(post: Blog) {
-	const Component = useMDXComponent(post.body.code);
+	const assertedPage = page as QueryDatabaseResponse['results'][0];
+	const assertedBlocks = blocks as ListBlockChildrenResponse['results'];
 
-	if (!post) return null;
+	const title = (assertedPage.properties['Title'] as ExtractedPropertyValue<'title'>).title[0].plain_text;
+
+	const published = (assertedPage.properties['Published At'] as ExtractedPropertyValue<'date'>).date?.start;
+	const formatted = new Date(published as string).toLocaleDateString('en-GB', {
+		month: 'long',
+		day: 'numeric',
+		year: 'numeric',
+		timeZone: 'UTC'
+	});
+
+	const notion = assertedPage.url.replace('www.notion.so', 'lavya.notion.site');
 
 	return (
-		<BlogLayout post={post}>
-			<Component
-				// @ts-ignore
-				components={MDXComponents}
-			/>
-		</BlogLayout>
+		<Container
+			title={`${title} - Lav`}
+			description={(assertedPage.properties['Description'] as ExtractedPropertyValue<'rich_text'>).rich_text[0].plain_text}
+			rss
+		>
+			<BackArrow href="/blog" text="All posts" />
+			<div className="flex flex-row items-baseline mt-3">
+				<h1 className="mb-3 text-3xl font-bold">{title}</h1>
+
+				<a target="_blank" rel="noreferrer noopener" href={notion} title="Open in Notion">
+					<NotionIcon className="h-5 w-5 ml-2.5" />
+				</a>
+			</div>
+
+			<div className="flex flex-col text-[0.925rem] text-gray-700 dark:text-gray-300">
+				<p>
+					Published on {formatted}
+				</p>
+			</div>
+
+			<div className="mt-10">
+				{assertedBlocks.map((block, idx) => (
+					<Fragment key={idx}>
+						{renderBlock(block)}
+					</Fragment>
+				))}
+			</div>
+		</Container>
 	);
 }
 
 export async function getStaticPaths() {
+	const database = await getDatabase(process.env.NOTION_BLOG_ID as string);
+
 	return {
-		paths: allBlogs.map(p => ({ params: { slug: p.slug } })),
-		fallback: false
+		paths: database.map(page => ({
+			params: {
+				slug: (page.properties.Slug as ExtractedPropertyValue<'rich_text'>).rich_text[0].plain_text
+			}
+		})),
+		fallback: true
 	};
 }
 
@@ -32,7 +76,39 @@ interface Params {
 }
 
 export async function getStaticProps({ params }: Params) {
-	const post = allBlogs.find(post => post.slug === params.slug);
+	const { slug } = params;
 
-	return { props: post };
+	const page = await getPage(slug, process.env.NOTION_BLOG_ID as string);
+	const blocks = await getBlocks(page.id);
+
+	const childBlocks = await Promise.all(
+		blocks
+			.filter((block) => block.has_children)
+			.map(async (block) => {
+				return {
+					id: block.id,
+					children: await getBlocks(block.id)
+				};
+			})
+	);
+
+	const blocksWithChildren = blocks.map((block) => {
+		// @ts-ignore
+		if (block.has_children && !block[block.type].children) {
+			// @ts-ignore
+			block[block.type]['children'] = childBlocks.find(
+				(x) => x.id === block.id
+			)?.children;
+		}
+
+		return block;
+	});
+
+	return {
+		props: {
+			page,
+			blocks: blocksWithChildren
+		},
+		revalidate: 60
+	};
 }
