@@ -6,9 +6,9 @@ export default function Home({ projects }: InferGetStaticPropsType<typeof getSta
 	return (
 		<Container rss>
 			<div>
-				<h2 className="text-4xl font-bold transform-gpu">
+				<h1 className="text-4xl font-bold transform-gpu">
 					Hi, I'm Lav.
-				</h2>
+				</h1>
 				<p className="mt-4">
 					I'm an Australian student, badminton player and hobby software developer.
 					I'm currently working on multiple projects, but in my free time I enjoy exploring the web, writing,
