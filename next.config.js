@@ -1,7 +1,6 @@
-const { withContentlayer } = require('next-contentlayer');
-
 /** @type {import('next').NextConfig} */
-const config = {
+module.exports = {
+    swcMinify: true,
     reactStrictMode: true,
     images: {
         domains: ['http.cat']
@@ -25,6 +24,4 @@ const config = {
             }
         ];
     }
-}
-
-module.exports = withContentlayer()(config);
+};

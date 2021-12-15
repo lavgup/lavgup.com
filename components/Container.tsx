@@ -1,10 +1,8 @@
 import { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-
 import Nav from './Nav';
 import Footer from './Footer';
-import PageTransition from './PageTransition';
 
 interface Props {
 	children: ReactNode,
@@ -12,7 +10,8 @@ interface Props {
 	description?: string,
 	image?: string,
 	date?: string,
-	type?: string
+	type?: string,
+	rss?: boolean
 }
 
 export default function Container(props: Props) {
@@ -47,15 +46,26 @@ export default function Container(props: Props) {
 				{meta.date && (
 					<meta property="article:published_time" content={meta.date} />
 				)}
+
+				{props.rss && (
+					<link
+						rel="alternate"
+						type="application/rss+xml"
+						title="Lav"
+						href="/feed.xml"
+					/>
+				)}
 			</Head>
 
-			<Nav />
-			<main className="flex flex-col px-8">
-				<PageTransition>
+
+			<div className="flex flex-col w-full min-h-screen h-max max-w-4xl px-4 mx-auto">
+				<Nav />
+				<main className="flex-grow mt-8 transition ease-in-out duration-500">
 					{children}
-				</PageTransition>
+				</main>
+
 				<Footer />
-			</main>
+			</div>
 		</div>
 	);
 }

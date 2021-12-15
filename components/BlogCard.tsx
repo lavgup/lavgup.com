@@ -1,0 +1,42 @@
+import { InferGetStaticPropsType } from 'next';
+import Link from 'next/link';
+import { getStaticProps } from '../pages/blog';
+import Tag from './Tag';
+
+export default function BlogCard({ post }: { post: InferGetStaticPropsType<typeof getStaticProps>['posts'][number] }) {
+	const published = post.publishedAt;
+	const formatted = new Date(published as string).toLocaleDateString('en-GB', {
+		month: 'long',
+		day: 'numeric',
+		year: 'numeric',
+		timeZone: 'UTC'
+	});
+
+	return (
+		<Link href={`/blog/${post.slug}`}>
+			<a className="inline-block p-2.5 md:p-3 w-full rounded-md transition ease-in-out duration-500 border border-md border-gray-300 dark:border-gray-700">
+				<div className="flex flex-col">
+					<p className="text-lg font-bold transform-gpu">
+						{post.title}
+					</p>
+					<p>
+						{post.description}
+					</p>
+
+					<div className="text-[0.925rem] text-gray-700 dark:text-gray-300 mt-3">
+						<ol className="flex flex-row gap-1">
+							{post.tags.map((tag, idx) => (
+								<li key={idx}>
+									<Tag tag={tag} />
+								</li>
+							))}
+						</ol>
+						<p className="mt-2 transition ease-in-out duration-500 ">
+							{formatted}
+						</p>
+					</div>
+				</div>
+			</a>
+		</Link>
+	);
+}

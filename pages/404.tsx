@@ -15,7 +15,7 @@ export default function NotFound() {
 					404
 				</h1>
 				<p className="mb-8 text-gray-600 dark:text-gray-400">
-					This page doesn&apos;t exist. You&apos;ve either followed a link to a page that has since been deleted or misspelled the URL.
+					This page doesn't exist. You've either followed a link to a page that has since been deleted or misspelled the URL.
 					Is the spelling 💯?
 				</p>
 
@@ -26,7 +26,7 @@ export default function NotFound() {
 				</Link>
 
 				<p className="mb-8 text-gray-600 dark:text-gray-400">
-					For your entertainment, here&apos;s a random HTTP catus code.
+					For your entertainment, here's a random HTTP catus code.
 				</p>
 				<Image
 					alt={`Image for HTTP status code ${data?.status || 404}`}

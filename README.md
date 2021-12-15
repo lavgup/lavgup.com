@@ -1,5 +1,5 @@
 ## lavya.me
-My personal portfolio built with React, Next.js and TailwindCSS.
+My personal portfolio built with React, Next.js and Tailwind CSS.
 
 ### Running
 ```shell

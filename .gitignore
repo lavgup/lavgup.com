@@ -1,9 +1,6 @@
 .next/
 .idea/
-
 node_modules/
-
 .env
 .pnpm-lock.yaml
-
-.contentlayer
+/public/feed.xml
