@@ -13,8 +13,6 @@ async function generate() {
 		feed_url: 'https://lavya.me/feed.xml'
 	});
 
-	console.log(process.env.NOTION_BLOG_ID as string);
-
 	const posts = await getPosts(process.env.NOTION_BLOG_ID as string);
 
 	posts.forEach(post => {
