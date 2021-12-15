@@ -56,7 +56,7 @@ export default function Blog({ posts }: InferGetStaticPropsType<typeof getStatic
 				<input
 					type="search"
 					className="
-						max-w-full py-1 px-1.5 pl-8 mt-3 bg-transparent border border-orange-200/40 w-96 rounded-md border-md dark:border-gray-700
+						max-w-full py-1 px-1.5 pl-8 mt-3 bg-transparent w-96 rounded-md border border-md border-orange-200/40 dark:border-orange-400/20
 						transition ease-in-out duration-500
 					"
 					placeholder="Search"
