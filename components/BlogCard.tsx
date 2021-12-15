@@ -14,7 +14,7 @@ export default function BlogCard({ post }: { post: InferGetStaticPropsType<typeo
 
 	return (
 		<Link href={`/blog/${post.slug}`}>
-			<a className="inline-block p-2.5 md:p-3 w-full rounded-md transition ease-in-out duration-500 border border-md border-gray-300 dark:border-gray-700">
+			<a className="inline-block p-2.5 md:p-3 w-full rounded-md transition ease-in-out duration-500 border border-2 border-orange-200/40 dark:border-orange-400/20">
 				<div className="flex flex-col">
 					<p className="text-lg font-bold transform-gpu">
 						{post.title}
@@ -31,7 +31,7 @@ export default function BlogCard({ post }: { post: InferGetStaticPropsType<typeo
 								</li>
 							))}
 						</ol>
-						<p className="mt-2 transition ease-in-out duration-500 ">
+						<p className="mt-3 text-sm transition ease-in-out duration-500 ">
 							{formatted}
 						</p>
 					</div>
