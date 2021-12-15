@@ -45,7 +45,7 @@ function ProjectCard({ project }: { project: InferGetStaticPropsType<typeof getS
 	return (
 		<a
 			href={project.url}
-			className="w-full p-3 border border-2 border-neutral-300 transition-all ease-in-out duration-500 dark:border-gray-700 rounded-md"
+			className="w-full p-3 border border-2 border-orange-200/40 transition-all ease-in-out duration-500 dark:border-gray-700 rounded-md"
 		>
 			<h3 className="text-lg font-bold tracking-tighter">
 				{project.name}
