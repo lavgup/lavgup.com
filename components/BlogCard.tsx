@@ -25,7 +25,7 @@ export default function BlogCard({ post }: { post: InferGetStaticPropsType<typeo
 
 					<div className="text-[0.925rem] text-gray-700 dark:text-gray-300 mt-3">
 						<ol className="flex flex-row gap-1">
-							{post.tags.map((tag, idx) => (
+							{post.tags.map((tag: string, idx: number) => (
 								<li key={idx}>
 									<Tag tag={tag} />
 								</li>
