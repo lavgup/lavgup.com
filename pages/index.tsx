@@ -7,7 +7,10 @@ export default function Home({ projects }: InferGetStaticPropsType<typeof getSta
 		<Container rss>
 			<div>
 				<h1 className="text-4xl font-bold transform-gpu">
-					Hi, I'm Lav.
+					Hi, I'm{" "}
+					<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F04D4D] to-[#F2CB28]">
+						Lav.
+					</span>
 				</h1>
 				<p className="mt-4">
 					I'm an Australian student, badminton player and hobby software developer.
