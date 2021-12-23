@@ -51,20 +51,19 @@ export default function Blog({ posts }: InferGetStaticPropsType<typeof getStatic
 			</p>
 
 			<div className="relative items-center">
-				<SearchIcon className="absolute text-gray-400 w-[1.15rem] h-[1.15rem] left-2 top-[1.275rem] dark:text-gray-300 transition ease-in-out duration-500" />
+				<SearchIcon className="absolute text-gray-400 w-[1.15rem] h-[1.15rem] left-2 top-[1.275rem] dark:text-gray-300" />
 
 				<input
 					type="search"
 					className="
 						max-w-full py-1 px-1.5 pl-8 mt-3 bg-transparent w-96 rounded-md border border-md border-orange-200/40 dark:border-orange-400/20
-						transition ease-in-out duration-500
 					"
 					placeholder="Search"
 					onChange={e => setSearchValue(e.target.value)}
 				/>
 			</div>
 
-			<ol className="flex flex-row flex-wrap mt-5 gap-2 transition">
+			<ol className="flex flex-row flex-wrap mt-5 gap-2">
 				{tags.map((el, idx) => (
 					<li key={idx}>
 						<Tag tag={el} />

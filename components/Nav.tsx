@@ -28,7 +28,7 @@ export default function Nav() {
 
 	return (
 		<nav
-			className="flex justify-between w-full py-3 mx-auto transition ease-in-out duration-500"
+			className="flex justify-between w-full py-3 mx-auto"
 		>
 			<Link href="/">
 				<a className="flex-shrink-0">
@@ -67,7 +67,8 @@ function NavLink({ text, href, active = false }: {
 }) {
 	const className = clsx(
 		'tracking-[0.005em] font-bold capitalize transform-gpu',
-		active && 'shadow-nav dark:shadow-nav-dark'
+		active && 'shadow-nav dark:shadow-nav-dark',
+		!active && 'opacity-60'
 	);
 
 	return (

@@ -8,19 +8,19 @@ export default function Home({ projects }: InferGetStaticPropsType<typeof getSta
 			<div>
 				<h1 className="text-4xl font-bold transform-gpu">
 					Hi, I'm{" "}
-					<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F04D4D] to-[#F2CB28]">
+					<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F04D4D] to-[#e6c02c]">
 						Lav.
 					</span>
 				</h1>
 				<p className="mt-4">
 					I'm an Australian student, badminton player and hobby software developer.
-					I'm currently working on multiple projects, but in my free time I enjoy exploring the web, writing,
+					I'm currently working on multiple projects, but in my free time I enjoy exploring the web, reading,
 					and enjoying time with friends and family.
 				</p>
 
 				<a
 					href="mailto:lavyag01@gmail.com"
-					className="mt-4 inline-block transition ease-in-out duration-400 px-2.5 py-1.5 rounded-lg text-orange-800/80 dark:text-orange-300/90 bg-orange-300/[.33] hover:bg-orange-400/[.33] dark:bg-orange-400/20 hover:dark:bg-orange-400/[.275]"
+					className="mt-4 inline-block px-2.5 py-1.5 rounded-lg text-orange-800/80 dark:text-orange-300/90 bg-orange-300/[.33] hover:bg-orange-400/[.33] dark:bg-orange-400/20 hover:dark:bg-orange-400/[.275]"
 				>
 					Contact me
 				</a>
@@ -48,12 +48,12 @@ function ProjectCard({ project }: { project: InferGetStaticPropsType<typeof getS
 	return (
 		<a
 			href={project.url}
-			className="w-full p-3 border border-2 border-orange-500/30 bg-orange-200/20 dark:bg-orange-600/10 dark:border-orange-600/40 rounded-md transition-all ease-in-out duration-500"
+			className="w-full p-3 border border-2 border-orange-500/30 bg-orange-200/20 dark:bg-orange-600/10 dark:border-orange-600/40 rounded-md"
 		>
-			<h3 className="text-lg font-bold tracking-tighter">
+			<h3 className="text-lg font-bold tracking-tight dark:text-orange-200/90">
 				{project.name}
 			</h3>
-			<p className="mt-2 text-gray-700 dark:text-gray-200 transition ease-in-out duration-500">
+			<p className="mt-2 text-gray-700 dark:text-[#FAA274]/70">
 				{project.description}
 			</p>
 		</a>

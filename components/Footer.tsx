@@ -3,9 +3,9 @@ import Link from 'next/link';
 export default function Footer() {
 	return (
 		<footer className="mt-16 bg-inherit">
-			<hr className="mb-8 w-full border-gray-300 transition duration-500 ease-in-out border-1 dark:border-gray-800" />
+			<hr className="mb-8 w-full border-gray-300 border-1 dark:border-gray-800" />
 
-			<div className="flex justify-between px-3 transition duration-100 ease-in-out">
+			<div className="flex justify-between px-3">
 				<div className="flex flex-col gap-2">
 					<StyledLink href="/" text="Home" />
 					<StyledLink href="/about" text="About" />

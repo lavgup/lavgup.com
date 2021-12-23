@@ -60,7 +60,7 @@ export default function Container(props: Props) {
 
 			<div className="flex flex-col w-full min-h-screen h-max max-w-4xl px-4 mx-auto">
 				<Nav />
-				<main className="flex-grow mt-8 transition ease-in-out duration-500">
+				<main className="flex-grow mt-8">
 					{children}
 				</main>
 

@@ -56,7 +56,7 @@ function Item({ children, closeOnCallback = true, ...props }: ItemProps) {
 				{...props}
 				className={`
 				${input.length && (matched || 'hidden')} 
-				flex flex-row w-full gap-3 items-center px-2.5 py-2 rounded-md leading-4 transition ease-in-out duration-300
+				flex flex-row w-full gap-3 items-center px-2.5 py-2 rounded-md leading-4
 				font-light text-gray-600 hover:text-gray-700 hover:bg-gray-100 dark:text-[#BCBCBC]/90 hover:text-gray-400 dark:hover:text-[#BCBCBC] dark:hover:bg-zinc-300/[0.125]
 				focus:outline-none focus:shadow-outline-blue focus:bg-gray-100 dark:focus:bg-zinc-300/[0.125]
 			`}

@@ -50,7 +50,7 @@ export default function Stack({ stack }: { stack: StackType }) {
 
 			<Image
 				src={DesktopHardware}
-				className="transition-all duration-500"
+				className="transition-all rounded-md duration-200"
 				placeholder="blur"
 				alt="Hardware stack"
 				width="500"
@@ -64,7 +64,7 @@ export default function Stack({ stack }: { stack: StackType }) {
 						Software
 					</h2>
 
-					<ul>
+					<div>
 						{Object.keys(categories.software).reverse().map((el, idx) => {
 							return <Category
 								name={el}
@@ -72,7 +72,7 @@ export default function Stack({ stack }: { stack: StackType }) {
 								obj={categories.software[el]}
 							/>;
 						})}
-					</ul>
+					</div>
 				</div>
 
 				<div className="px-2 py-2 mt-4 ml-0 md:ml-16 md:px-0 md:mt-0">
@@ -80,7 +80,7 @@ export default function Stack({ stack }: { stack: StackType }) {
 						Hardware
 					</h2>
 
-					<ul className="flex flex-col justify-start mt-2">
+					<div className="flex flex-col justify-start mt-2">
 						{Object.keys(categories.hardware).reverse().map((el, idx) => {
 							return <Category
 								name={el}
@@ -88,7 +88,7 @@ export default function Stack({ stack }: { stack: StackType }) {
 								obj={categories.hardware[el]}
 							/>;
 						})}
-					</ul>
+					</div>
 				</div>
 			</div>
 		</Container>

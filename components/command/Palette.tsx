@@ -124,11 +124,11 @@ function CommandMenu() {
 							leaveTo="opacity-0 scale-95"
 						>
 							<div
-								className="inline-block p-2 md:h-fit overflow-hidden w-full my-6 mx-8 md:m-0 md:max-w-2xl transform text-left bg-white dark:bg-[#111] drop-shadow-2xl rounded-xl [will-change:height] transition ease-in-out duration-200"
+								className="inline-block md:h-fit overflow-hidden w-full my-6 mx-8 md:m-0 md:max-w-2xl transform text-left bg-white dark:bg-[#111] drop-shadow-2xl rounded-xl [will-change:height]"
 								aria-label="Command Menu"
 							>
 								<input
-									className="inline-block pt-3.5 pb-3 px-4 w-full rounded-t-2xl bg-white dark:bg-[#111] border-b-2 border-gray-200 dark:border-gray-700 placeholder:text-gray-300/70 focus:outline-none transition ease-in-out duration-500"
+									className="inline-block pt-3.5 pb-3 px-4 w-full rounded-t-xl bg-white dark:bg-[#111] border-b-2 border-gray-200 dark:border-gray-700 placeholder:text-gray-300/70 focus:outline-none"
 									onChange={e => setInput(e.target.value)}
 									ref={inputRef}
 									value={input}
@@ -140,7 +140,7 @@ function CommandMenu() {
 									}
 								/>
 
-								<div className="justify-center p-1 overflow-y-auto">
+								<div className="bg-white dark:bg-[#111] justify-center p-1 overflow-y-auto">
 									<Items />
 								</div>
 							</div>

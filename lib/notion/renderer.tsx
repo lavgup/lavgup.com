@@ -47,7 +47,7 @@ export function renderBlock(block: Unpacked<Block>) {
 			return (
 				<p className="mt-4">
 					<Text
-						className={['prose', 'dark:prose-dark', 'transition ease-in-out duration-500']}
+						className={['prose', 'dark:prose-dark']}
 						text={block.paragraph.text[0]}
 					/>
 				</p>

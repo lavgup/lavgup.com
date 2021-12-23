@@ -27,7 +27,7 @@ export default class MyDocument extends Document {
                     />
                 </Head>
 
-                <body className="transition ease-in-out duration-500 bg-amber-50/40 dark:bg-soft-black dark:text-white">
+                <body className="bg-amber-50/40 dark:bg-soft-black dark:text-white">
                     <Main />
                     <NextScript />
                 </body>
