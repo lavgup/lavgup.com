@@ -13,10 +13,10 @@ export function middleware() {
 
 	const response = NextResponse.next();
 
-	response.headers.set(
-		'Content-Security-Policy',
-		ContentSecurityPolicy.replace(/\n/g, '')
-	);
+	// response.headers.set(
+	// 	'Content-Security-Policy',
+	// 	ContentSecurityPolicy.replace(/\n/g, '')
+	// );
 	response.headers.set('Referrer-Policy', 'origin-when-cross-origin');
 	response.headers.set(
 		'Permissions-Policy',

@@ -1,6 +1,5 @@
 const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
 
-
 module.exports = {
 	future: {
 		removeDeprecatedGapUtilities: true,
