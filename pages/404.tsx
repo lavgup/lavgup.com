@@ -10,7 +10,7 @@ export default function NotFound() {
 
 	return (
 		<Container title="404 - Lav">
-			<div className="flex flex-col items-start justify-center max-w-4xl mx-auto mb-16">
+			<div className="flex flex-col justify-center items-start mx-auto mb-16 max-w-4xl">
 				<h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
 					404
 				</h1>
@@ -20,7 +20,7 @@ export default function NotFound() {
 				</p>
 
 				<Link href="/">
-					<a className="w-40 p-1 mb-8 font-bold text-center text-black bg-gray-200 rounded-md sm:p-4 dark:bg-gray-600 dark:text-white">
+					<a className="p-1 mb-8 w-40 font-bold text-center text-black bg-gray-200 rounded-md sm:p-4 dark:text-white dark:bg-gray-600">
 						Go back home
 					</a>
 				</Link>

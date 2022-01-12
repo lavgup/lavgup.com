@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: AppleSystemUIFont, 'Inter';
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
     font-style: normal;
     font-weight: 100 900;
     font-display: optional;
@@ -13,3 +13,8 @@
     U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;
 }
+
+#kbar-listbox-item-0 p {
+    padding-top: 0.35rem;
+}
+

@@ -37,7 +37,7 @@ export default function BlogPost({ page, blocks }: InferGetStaticPropsType<typeo
 				<h1 className="mb-3 text-3xl font-bold">{title}</h1>
 
 				<a target="_blank" rel="noreferrer noopener" href={notion} title="Open in Notion">
-					<NotionIcon className="h-5 w-5 ml-2.5" />
+					<NotionIcon className="ml-2.5 w-5 h-5" />
 				</a>
 			</div>
 

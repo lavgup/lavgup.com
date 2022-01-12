@@ -55,15 +55,13 @@ export default function Blog({ posts }: InferGetStaticPropsType<typeof getStatic
 
 				<input
 					type="search"
-					className="
-						max-w-full py-1 px-1.5 pl-8 mt-3 bg-transparent w-96 rounded-md border border-md border-orange-200/40 dark:border-orange-400/20
-					"
+					className="py-1 px-1.5 pl-8 mt-3 w-96 max-w-full bg-transparent rounded-md border border-md border-orange-200/40 dark:border-orange-400/20"
 					placeholder="Search"
 					onChange={e => setSearchValue(e.target.value)}
 				/>
 			</div>
 
-			<ol className="flex flex-row flex-wrap mt-5 gap-2">
+			<ol className="flex flex-row flex-wrap gap-2 mt-5">
 				{tags.map((el, idx) => (
 					<li key={idx}>
 						<Tag tag={el} />

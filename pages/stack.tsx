@@ -50,7 +50,7 @@ export default function Stack({ stack }: { stack: StackType }) {
 
 			<Image
 				src={DesktopHardware}
-				className="transition-all rounded-md duration-200"
+				className="rounded-md transition-all duration-100"
 				placeholder="blur"
 				alt="Hardware stack"
 				width="500"
@@ -58,8 +58,8 @@ export default function Stack({ stack }: { stack: StackType }) {
 				priority
 			/>
 
-			<div className="left-0 mt-16 grid grid-cols-1 md:grid-cols-2">
-				<div className="px-2 py-2 border-b md:border-b-0 md:border-r-2 dark:border-neutral-500 md:px-0">
+			<div className="grid left-0 grid-cols-1 mt-16 md:grid-cols-2">
+				<div className="py-2 border-b md:border-b-0 md:border-r-2 dark:border-neutral-500">
 					<h2 className="mb-2 text-3xl font-bold">
 						Software
 					</h2>
@@ -75,8 +75,8 @@ export default function Stack({ stack }: { stack: StackType }) {
 					</div>
 				</div>
 
-				<div className="px-2 py-2 mt-4 ml-0 md:ml-16 md:px-0 md:mt-0">
-					<h2 className="flex items-center justify-start text-3xl font-bold">
+				<div className="py-2 mt-4 ml-0 md:mt-0 md:ml-16">
+					<h2 className="flex justify-start items-center text-3xl font-bold">
 						Hardware
 					</h2>
 
@@ -113,7 +113,7 @@ function Category({ name, obj }: { name: string, obj: StackType }) {
         decoration-orange-600 dark:decoration-orange-400 decoration-[0.25rem]
         motion-safe:transition-all motion-safe:duration-200
         hover:text-gray-500 dark:hover:text-neutral-300
-        focus:decoration-[0.5rem] hover:decoration-orange-600/50 dark:hover:decoration-orange-400/[.725] focus:decoration-yellow-500/50"
+        hover:decoration-orange-600/50 dark:hover:decoration-orange-400/[.725]"
 							rel="noopener noreferrer"
 						>
 							{e.name}

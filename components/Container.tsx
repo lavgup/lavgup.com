@@ -47,6 +47,7 @@ export default function Container(props: Props) {
 					<meta property="article:published_time" content={meta.date} />
 				)}
 
+				{/* Only expose RSS feed to relevant pages (home, blog, blog/* etc.) */}
 				{props.rss && (
 					<link
 						rel="alternate"
@@ -58,13 +59,14 @@ export default function Container(props: Props) {
 			</Head>
 
 
-			<div className="flex flex-col w-full min-h-screen h-max max-w-4xl px-4 mx-auto">
+			<div className="flex flex-col min-h-screen h-max">
 				<Nav />
-				<main className="flex-grow mt-8">
-					{children}
-				</main>
 
-				<Footer />
+				<main className="flex-grow w-full max-w-4xl px-4 mx-auto">
+					{children}
+
+					<Footer />
+				</main>
 			</div>
 		</div>
 	);

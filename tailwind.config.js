@@ -9,7 +9,7 @@ module.exports = {
 	content: [
 		'./pages/**/*.{js,ts,jsx,tsx}',
 		'./components/**/*.{js,ts,jsx,tsx}',
-		'./lib/**/*.{jsx,tsx}',
+		'./lib/**/*.{js,tsjsx,tsx}',
 	],
 	darkMode: 'class',
 	theme: {
@@ -19,20 +19,13 @@ module.exports = {
 				'nav-dark': `0 3px 0 ${theme('colors.gray.200')}`
 			}),
 			colors: {
-				'red': {
-					'150': 'rgba(254, 210, 210, 1)',
-					'text': {
-						DEFAULT: 'rgb(130,39,39)',
-						dark: 'rgb(254,178,178)'
-					},
-					'10': 'rgba(254,178,178, 0.16)'
-				},
 				'soft-black': '#141415',
-				'nav-gray': 'rgb(220,220,224)',
-				'cool-gray': {
-					light: 'rgb(39,39,38)',
-					dark: 'rgb(39,39,58)'
-				}
+				'cmd': {
+					kbd: {
+						DEFAULT: 'rgba(0 0 0/ .1)',
+						dark: ''
+					}
+				},
 			},
 			fontFamily: {
 				sans: ['Inter', ...fontFamily.sans]

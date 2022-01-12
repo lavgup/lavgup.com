@@ -17,7 +17,7 @@ export default function Words({ words }: InferGetStaticPropsType<typeof getStati
 				Vocables I find intriguing.
 			</p>
 
-			<div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-2">
+			<div className="grid grid-cols-1 gap-2 mt-10 md:grid-cols-2">
 				{words.map((word, idx) => (
 					<Word
 						key={idx}
@@ -34,7 +34,7 @@ function Word({ word }: { word: InferGetStaticPropsType<typeof getStaticProps>['
 		<div
 			key={word.name}
 			onClick={() => clipboardy.write(word.name?.toLowerCase())}
-			className="py-4 px-1.5 rounded-md bg-orange-200/20 hover:bg-orange-200/40 dark:bg-gray-600/20 dark:hover:bg-gray-600/30 cursor-copy"
+			className="py-4 px-1.5 rounded-md bg-orange-200/20 cursor-copy dark:bg-gray-600/20 dark:hover:bg-gray-600/30 hover:bg-orange-200/40"
 		>
 			<div className="flex flex-col ml-2 cursor-copy">
 				<h2 className="font-medium tracking-tight text-md">

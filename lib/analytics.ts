@@ -2,11 +2,14 @@ import * as Panelbear from '@panelbear/panelbear-js';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-export const usePanelbear = (siteId: string, config = {}) => {
+export const useAnalytics = () => {
 	const router = useRouter();
 
 	useEffect(() => {
-		Panelbear.load(siteId, config);
+		Panelbear.load(process.env.NEXT_PUBLIC_PANELBEAR_SITE_ID as string, {
+			scriptSrc: '/bear.js',
+			enabled: process.env.NODE_ENV === 'production'
+		});
 
 		// Trigger initial page view
 		Panelbear.trackPageview();
@@ -18,5 +21,5 @@ export const usePanelbear = (siteId: string, config = {}) => {
 		return () => {
 			router.events.off('routeChangeComplete', handleRouteChange);
 		};
-	}, [config, router.events, siteId]);
+	}, [router.events]);
 };

@@ -14,7 +14,7 @@ export default function BlogCard({ post }: { post: InferGetStaticPropsType<typeo
 
 	return (
 		<Link href={`/blog/${post.slug}`}>
-			<a className="inline-block p-2.5 md:p-3 w-full rounded-md border border-2 border-orange-200/40 dark:border-orange-400/20">
+			<a className="inline-block p-2.5 w-full rounded-md border-2 border md:p-3 border-orange-200/40 dark:border-orange-400/20">
 				<div className="flex flex-col">
 					<p className="text-lg font-bold transform-gpu">
 						{post.title}

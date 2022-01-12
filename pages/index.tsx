@@ -31,7 +31,7 @@ export default function Home({ projects }: InferGetStaticPropsType<typeof getSta
 					Projects
 				</h2>
 
-				<div className="flex flex-col mt-2 gap-2">
+				<div className="flex flex-col gap-2 mt-2">
 					{projects.reverse().map((el, idx) => (
 						<ProjectCard
 							key={idx}
@@ -48,7 +48,7 @@ function ProjectCard({ project }: { project: InferGetStaticPropsType<typeof getS
 	return (
 		<a
 			href={project.url}
-			className="w-full p-3 border border-2 border-orange-500/30 bg-orange-200/20 dark:bg-orange-600/10 dark:border-orange-600/40 rounded-md"
+			className="p-3 w-full rounded-md border-2 border border-orange-500/30 bg-orange-200/20 dark:bg-orange-600/10 dark:border-orange-600/40"
 		>
 			<h3 className="text-lg font-bold tracking-tight dark:text-orange-200/90">
 				{project.name}

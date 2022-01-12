@@ -5,3 +5,5 @@ node_modules/
 .env
 .pnpm-lock.yaml
 /public/feed.xml
+
+.vercel

@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 export default function Footer() {
 	return (
-		<footer className="mt-16 bg-inherit">
-			<hr className="mb-8 w-full border-gray-300 border-1 dark:border-gray-800" />
+		<footer className="mt-16 px-4">
+			<hr className="mb-8 w-full border-gray-300 dark:border-gray-800 border-1" />
 
 			<div className="flex justify-between px-3">
 				<div className="flex flex-col gap-2">
@@ -34,7 +34,7 @@ export default function Footer() {
 function StyledLink({ href, text}: { href: string, text: string }) {
 	return (
 		<Link href={href}>
-			<a className="text-gray-600 dark:text-zinc-300/90 hover:text-gray-400 dark:hover:text-gray-200/90">{text}</a>
+			<a className="text-gray-600 hover:text-gray-400 dark:text-zinc-300/90 dark:hover:text-gray-200/90">{text}</a>
 		</Link>
 	);
 }

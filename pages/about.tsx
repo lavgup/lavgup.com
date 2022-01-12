@@ -26,12 +26,12 @@ export default function About() {
 					/>
 				</picture>
 
-				<figcaption className="text-sm ml-0.5">
+				<figcaption className="ml-0.5 text-sm">
 					Artistic sunset taken late-2020.
 				</figcaption>
 			</figure>
 
-			<p className="w-full mt-6 text-gray-600 prose max-w-none dark:prose-dark">
+			<p className="mt-6 w-full max-w-none text-gray-600 prose dark:prose-dark">
 				Hey! I'm Lavya. I'm an Australian high school student with a passion for exploring the web.
 				When I'm not studying for my final years, I'm usually programming interesting projects, watching TV or
 				hanging out with friends.

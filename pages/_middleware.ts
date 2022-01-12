@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export function middleware() {
 	const ContentSecurityPolicy = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval';
     style-src 'self' 'unsafe-inline';
     img-src * blob: data:;
     media-src 'none';
