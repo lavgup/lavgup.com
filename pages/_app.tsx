@@ -1,20 +1,17 @@
 import 'styles/globals.css';
 
-import { ThemeProvider } from 'next-themes';
 import { AppProps } from 'next/app';
+import { ThemeProvider } from 'next-themes';
 import CommandPalette from '../components/CommandPalette';
 import { Toaster } from 'react-hot-toast';
-import { useAnalytics } from '../lib/analytics';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-	useAnalytics();
-
 	return (
-		<ThemeProvider attribute="class" enableColorScheme={false}>
+		<ThemeProvider attribute="class">
 			<CommandPalette>
 				<Component {...pageProps} />
+				<Toaster position="bottom-right" />
 			</CommandPalette>
-			<Toaster position="bottom-right" />
 		</ThemeProvider>
 	);
 }

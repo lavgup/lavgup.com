@@ -1,7 +1,7 @@
 import Container from 'components/Container';
 
 import { getPosts } from '../../lib/notion';
-import SearchIcon from '../../components/icons/Search';
+import { SearchIcon } from '../../components/icons';
 import { useState } from 'react';
 import { InferGetStaticPropsType } from 'next';
 import BlogCard from '../../components/BlogCard';

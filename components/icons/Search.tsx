@@ -1,11 +1,11 @@
-export default function SearchIcon({ ...props }) {
+export function SearchIcon({ ...props }) {
 	return (
 		<svg
-			{...props}
 			xmlns="http://www.w3.org/2000/svg"
 			fill="none"
 			viewBox="0 0 24 24"
 			stroke="currentColor"
+			{...props}
 		>
 			<path
 				strokeLinecap="round"

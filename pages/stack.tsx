@@ -26,7 +26,7 @@ export default function Stack({ stack }: { stack: StackType }) {
 		{ current: software, string: 'software' }
 	].forEach(({ current, string }) => {
 		current.forEach(el => {
-			el.tags.forEach(tag => {
+			el.tags.forEach((tag: string) => {
 				if (tag === string) return;
 				categories[string as 'hardware' | 'software'][tag] = [
 					...(categories[string as 'hardware' | 'software'][tag] || []),

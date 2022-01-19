@@ -1,11 +1,11 @@
 export function SunIcon({ ...props }) {
 	return (
 		<svg
-			{...props}
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 24 24"
 			fill="none"
 			stroke="currentColor"
+			{...props}
 		>
 			<path
 				strokeLinecap="round"
@@ -20,11 +20,11 @@ export function SunIcon({ ...props }) {
 export function DarkIcon({ ...props }) {
 	return (
 		<svg
-			{...props}
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 24 24"
 			fill="none"
 			stroke="currentColor"
+			{...props}
 		>
 			<path
 				strokeLinecap="round"
@@ -39,7 +39,6 @@ export function DarkIcon({ ...props }) {
 export function SystemIcon({ ...props }) {
 	return (
 		<svg
-			{...props}
 			viewBox="0 0 24 24"
 			stroke="currentColor"
 			color="currentColor"
@@ -48,6 +47,7 @@ export function SystemIcon({ ...props }) {
 			strokeLinejoin="round"
 			fill="none"
 			shapeRendering="geometricPrecision"
+			{...props}
 		>
 			<rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
 			<path d="M8 21h8" />

@@ -2,8 +2,6 @@ import { getWords } from '../lib/notion';
 import { InferGetStaticPropsType } from 'next';
 import Container from '../components/Container';
 
-import clipboardy from 'clipboardy';
-
 export default function Words({ words }: InferGetStaticPropsType<typeof getStaticProps>) {
 	return (
 		<Container
@@ -33,7 +31,7 @@ function Word({ word }: { word: InferGetStaticPropsType<typeof getStaticProps>['
 	return (
 		<div
 			key={word.name}
-			onClick={() => clipboardy.write(word.name?.toLowerCase())}
+			onClick={() => navigator.clipboard.writeText(word.name.toLowerCase())}
 			className="py-4 px-1.5 rounded-md bg-orange-200/20 cursor-copy dark:bg-gray-600/20 dark:hover:bg-gray-600/30 hover:bg-orange-200/40"
 		>
 			<div className="flex flex-col ml-2 cursor-copy">

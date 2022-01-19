@@ -1,7 +1,6 @@
-export default function DuplicateIcon({ ...props }) {
+export function DuplicateIcon({ ...props }) {
 	return (
 		<svg
-			{...props}
 			viewBox="0 0 24 24"
 			stroke="currentColor"
 			strokeWidth="1"
@@ -10,6 +9,7 @@ export default function DuplicateIcon({ ...props }) {
 			fill="none"
 			shapeRendering="geometricPrecision"
 			color="currentColor"
+			{...props}
 		>
 			<path
 				strokeLinecap="round"

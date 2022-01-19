@@ -1,33 +1,38 @@
 import {
+	ActionId,
+	KBarAnimator,
 	KBarProvider,
 	KBarPortal,
 	KBarPositioner,
-	KBarAnimator,
 	KBarSearch,
 	KBarResults,
+	NO_GROUP,
 	useMatches,
-	ActionImpl,
-	ActionId
+	ActionImpl, useKBar
 } from 'kbar';
 
-import React, {ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 
-import { toast, Toaster } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
-import HomeIcon from './icons/Home';
-import UserIcon from './icons/User';
-import BlogIcon from './icons/Blog';
-import StackIcon from './icons/Stack';
-import WordsIcon from './icons/Words';
-import TwitterIcon from './icons/Twitter';
-import GitHubIcon from './icons/GitHub';
-import MailIcon from './icons/Mail';
-import { DarkIcon, SunIcon, SystemIcon } from './icons/Theme';
-import DuplicateIcon from './icons/Duplicate';
-import RSSIcon from './icons/RSS';
-import CodeIcon from './icons/Code';
+import {
+	BlogIcon,
+	CodeIcon,
+	DarkIcon,
+	DuplicateIcon,
+	GitHubIcon,
+	HomeIcon,
+	MailIcon,
+	RSSIcon,
+	StackIcon,
+	SunIcon,
+	SystemIcon,
+	TwitterIcon,
+	UserIcon,
+	WordsIcon
+} from './icons';
 
 import * as Panelbear from '@panelbear/panelbear-js';
 
@@ -37,12 +42,11 @@ enum Sections {
 	Socials = 'socials',
 	General = 'general'
 }
-
 /* eslint-enable */
 
 export default function CommandPalette({ children }: { children: ReactNode }) {
 	const router = useRouter();
-	const { resolvedTheme, setTheme } = useTheme();
+	const { setTheme } = useTheme();
 
 	const actions = [
 		{
@@ -94,10 +98,9 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
 			id: 'twitter',
 			name: 'Twitter',
 			icon: <TwitterIcon />,
-			shortcut: ['t'],
 			section: Sections.Socials,
 			keywords: 'twitter tweet',
-			perform: () => window.location.href = 'https://twitter.com/lavgup'
+			perform: () => window.open('https://twitter.com/lavgup')
 		},
 		{
 			id: 'github',
@@ -105,7 +108,7 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
 			icon: <GitHubIcon />,
 			shortcut: ['g'],
 			section: Sections.Socials,
-			perform: () => window.location.href = 'https://github.com/lavgup'
+			perform: () => window.open('https://github.com/lavgup')
 		},
 		{
 			id: 'mail',
@@ -114,11 +117,12 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
 			shortcut: ['m'],
 			section: Sections.Socials,
 			keywords: 'email contact',
-			perform: () => window.location.href = 'mailto://lavyag01@gmail.com'
+			perform: () => window.open('mailto://lavyag01@gmail.com')
 		},
 		{
 			id: 'theme',
 			name: 'Change theme...',
+			shortcut: ['t'],
 			icon: <SystemIcon />,
 			section: Sections.General
 		},
@@ -129,9 +133,7 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
 			section: '',
 			keywords: 'light theme',
 			parent: 'theme',
-			perform: () => {
-				setTheme('light');
-			}
+			perform: () => setTheme('light')
 		},
 		{
 			id: 'dark',
@@ -140,9 +142,7 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
 			section: '',
 			keywords: 'dark theme',
 			parent: 'theme',
-			perform: () => {
-				setTheme('dark');
-			}
+			perform: () => setTheme('dark')
 		},
 		{
 			id: 'system',
@@ -151,9 +151,7 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
 			section: '',
 			keywords: 'system theme',
 			parent: 'theme',
-			perform: () => {
-				setTheme('system');
-			}
+			perform: () => setTheme('system')
 		},
 		{
 			id: 'copyUrl',
@@ -162,14 +160,13 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
 			shortcut: ['cc'],
 			section: Sections.General,
 			keywords: 'copy share url',
-			perform: () => {
-				navigator.clipboard.writeText('https://lavya.me' + router.asPath).then();
+			perform: async () => {
+				await navigator.clipboard.writeText('https://lavya.me' + router.asPath);
 
-				const options = resolvedTheme === 'dark'
-					? { style: { background: '#262626', color: '#E5E5E5' } }
-					: {};
-
-				toast.success('Successfully copied to clipboard!', options);
+				toast.success('Copied to clipboard!', {
+					className: 'text-neutral-600 dark:text-neutral-200/[.85] bg-white dark:bg-neutral-800',
+					duration: 3000
+				});
 			}
 		},
 		{
@@ -179,8 +176,8 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
 			section: Sections.General,
 			keywords: 'rss feed atom',
 			perform: async () => {
-				navigator.clipboard.writeText('https://lavya.me/feed.xml').then();
-				router.push('https://lavya.me/feed.xml').then();
+				await navigator.clipboard.writeText('https://lavya.me/feed.xml');
+				await router.push('https://lavya.me/feed.xml');
 			}
 		},
 		{
@@ -190,9 +187,7 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
 			shortcut: ['sc'],
 			section: Sections.General,
 			keywords: 'source code',
-			perform: async () => {
-				window.location.href = 'https://github.com/lavgup/lavya.me';
-			}
+			perform: () => window.open('https://github.com/lavgup/lavya.me')
 		}
 	].map(action => {
 		const obj = {
@@ -200,11 +195,10 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
 		};
 
 		if (action.perform) {
-			obj.perform = () => {
-				action.perform();
+			obj.perform = async () => {
+				await action.perform();
 
 				const prefix = action.parent ? `${action.parent}-` : '';
-
 				Panelbear.track(`cmd-${prefix}${action.id}`);
 			};
 		}
@@ -238,8 +232,6 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
 			</KBarPortal>
 
 			{children}
-
-			<Toaster position="bottom-right" />
 		</KBarProvider>
 	);
 }
@@ -247,10 +239,11 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
 function Results() {
 	const { results, rootActionId } = useMatches();
 
+	console.log(results);
+
 	return (
 		<KBarResults
-			maxHeight={400}
-			items={results}
+			items={results.filter(i => i !== NO_GROUP)}
 			onRender={({ item, active }) =>
 				typeof item === 'string' ? (
 					<p
@@ -289,10 +282,6 @@ const ResultItem = React.forwardRef(
 			const index = action.ancestors.findIndex(
 				(ancestor) => ancestor.id === currentRootActionId
 			);
-			// +1 removes the currentRootAction; e.g.
-			// if we are on the "Set theme" parent action,
-			// the UI should not display "Set theme… > Dark"
-			// but rather just "Dark"
 			return action.ancestors.slice(index + 1);
 		}, [action.ancestors, currentRootActionId]);
 
@@ -310,11 +299,11 @@ const ResultItem = React.forwardRef(
 				<div
 					className="flex gap-3 items-center text-sm"
 				>
-					<span className="w-5 h-5">
+					<span className="w-5 h-5 opacity-70">
 						{action.icon && action.icon}
 					</span>
 
-					<div className="flex flex-col">
+					<div className="flex flex-col mt-0.5">
 						<div>
 							{ancestors.length > 0 && ancestors.map((ancestor: ActionImpl) => (
 								<React.Fragment key={ancestor.id}>
@@ -338,7 +327,7 @@ const ResultItem = React.forwardRef(
 				{action.shortcut?.length ? (
 					<div
 						aria-hidden
-						className="grid grid-flow-col gap-[0.25rem]"
+						className="grid grid-flow-cols"
 					>
 						{action.shortcut.map((sc) => (
 							<kbd

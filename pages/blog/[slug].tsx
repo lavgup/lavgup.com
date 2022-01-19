@@ -4,7 +4,7 @@ import { ExtractedPropertyValue } from '../../lib/utils';
 import { getBlocks, getDatabase, getPage } from '../../lib/notion';
 import { renderBlock} from '../../lib/notion/renderer';
 import Container from '../../components/Container';
-import { NotionIcon } from '../../components/icons/Notion';
+import { NotionIcon } from '../../components/icons';
 import { ListBlockChildrenResponse, QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
 import BackArrow from '../../components/BackArrow';
 
@@ -36,7 +36,11 @@ export default function BlogPost({ page, blocks }: InferGetStaticPropsType<typeo
 			<div className="flex flex-row items-baseline mt-3">
 				<h1 className="mb-3 text-3xl font-bold">{title}</h1>
 
-				<a target="_blank" rel="noreferrer noopener" href={notion} title="Open in Notion">
+				<a
+					href={notion}
+					target="_blank" rel="noreferrer noopener"
+					title="Open in Notion"
+				>
 					<NotionIcon className="ml-2.5 w-5 h-5" />
 				</a>
 			</div>

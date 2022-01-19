@@ -14,7 +14,8 @@ export default function Home({ projects }: InferGetStaticPropsType<typeof getSta
 				</h1>
 				<p className="mt-4">
 					I'm an Australian student, badminton player and hobby software developer.
-					I'm currently working on multiple projects, but in my free time I enjoy exploring the web, reading,
+					I'm currently working on multiple projects, but in my free time I enjoy exploring the web,
+					reading,
 					and enjoying time with friends and family.
 				</p>
 

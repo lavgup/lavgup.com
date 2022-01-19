@@ -1,10 +1,8 @@
 import * as Panelbear from '@panelbear/panelbear-js';
-import { useRouter } from 'next/router';
+import { NextRouter } from 'next/router';
 import { useEffect } from 'react';
 
-export const useAnalytics = () => {
-	const router = useRouter();
-
+export const useAnalytics = (router: NextRouter) => {
 	useEffect(() => {
 		Panelbear.load(process.env.NEXT_PUBLIC_PANELBEAR_SITE_ID as string, {
 			scriptSrc: '/bear.js',

@@ -2,10 +2,10 @@ import Link from 'next/link';
 
 export default function Footer() {
 	return (
-		<footer className="mt-16 px-4">
+		<footer className="mt-16">
 			<hr className="mb-8 w-full border-gray-300 dark:border-gray-800 border-1" />
 
-			<div className="flex justify-between px-3">
+			<div className="flex justify-between px-2">
 				<div className="flex flex-col gap-2">
 					<StyledLink href="/" text="Home" />
 					<StyledLink href="/about" text="About" />

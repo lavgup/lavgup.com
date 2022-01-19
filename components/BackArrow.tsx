@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import LeftArrow from './icons/LeftArrow';
+import { LeftArrow } from './icons';
 
 export default function BackArrow({ href, text }: { href: string, text: string }) {
 	return (

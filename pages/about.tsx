@@ -53,9 +53,7 @@ export default function About() {
 function A({ href, children }: { href: string, children: string }) {
 	return (
 		<Link href={href}>
-			<a>
-				{children}
-			</a>
+			<a>{children}</a>
 		</Link>
 	);
 }

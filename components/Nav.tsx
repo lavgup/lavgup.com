@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
-import CommandIcon from './icons/Command';
+import { CommandIcon } from './icons';
 import { useKBar } from 'kbar';
+import { LavIcon } from './icons';
 
 const pages = [
 	{
@@ -40,19 +40,13 @@ export default function Nav() {
 				sticky w-full
 				${vState !== 'hidden' && 'invisible'}
 				backdrop-saturate-[180%] backdrop-blur-2xl
-				top-0 z-10 px-2 pt-3.5 pb-5 mt-2 mx-auto mb-5
+				top-0 z-10 px-2 pt-3.5 pb-5 mx-auto mb-5
 			`}
 		>
 			<div className="flex items-center justify-between max-w-[54rem] w-full mx-auto">
 				<Link href="/">
-					<a className="flex-shrink-0">
-						<Image
-							src="/static/images/llama.png"
-							height="50"
-							width="50"
-							className="w-14 h-14 rounded-full"
-							alt="Lav's llama avatar"
-						/>
+					<a>
+						<LavIcon height="23" width="80" className="mt-3" />
 					</a>
 				</Link>
 
@@ -67,7 +61,7 @@ export default function Nav() {
 					})}
 				</div>
 
-				<div className="pr-2 mt-4">
+				<div className="pr-3 md:pr-2 mt-4">
 					<button title="⌘K" onClick={query.toggle}>
 						<CommandIcon className="h-5 w-5" />
 					</button>
@@ -90,9 +84,7 @@ function NavLink({ text, href, active = false }: {
 
 	return (
 		<Link href={href}>
-			<a
-				className={className}
-			>
+			<a className={className}>
 				{text}
 			</a>
 		</Link>
