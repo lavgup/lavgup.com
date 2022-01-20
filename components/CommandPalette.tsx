@@ -285,7 +285,7 @@ function CommandMenu() {
 function Breadcrumb({ text, query }: { text: string, query: KBarQuery }) {
 	return (
 		<button
-			className="px-[.45rem] py-0.5 bg-gray-200 text-slate-600/90 text-xs rounded-md capitalize"
+			className=" bg-gray-200 text-slate-600/90 dark:bg-neutral-800 dark:text-neutral-400/80 px-[.45rem] py-0.5 text-xs rounded-md capitalize"
 			onClick={() => query.setCurrentRootAction(text === 'home' ? '' : text)}
 		>
 			{text}
