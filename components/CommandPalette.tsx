@@ -8,7 +8,9 @@ import {
 	KBarResults,
 	NO_GROUP,
 	useMatches,
-	ActionImpl, useKBar, KBarQuery
+	ActionImpl,
+	useKBar,
+	KBarQuery
 } from 'kbar';
 
 import React, { ReactNode } from 'react';
