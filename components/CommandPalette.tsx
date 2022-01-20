@@ -8,7 +8,7 @@ import {
 	KBarResults,
 	NO_GROUP,
 	useMatches,
-	ActionImpl, useKBar
+	ActionImpl, useKBar, KBarQuery
 } from 'kbar';
 
 import React, { ReactNode } from 'react';
@@ -42,6 +42,7 @@ enum Sections {
 	Socials = 'socials',
 	General = 'general'
 }
+
 /* eslint-enable */
 
 export default function CommandPalette({ children }: { children: ReactNode }) {
@@ -154,7 +155,7 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
 			perform: () => setTheme('system')
 		},
 		{
-			id: 'copyUrl',
+			id: 'copy-url',
 			name: 'Copy URL to clipboard',
 			icon: <DuplicateIcon />,
 			shortcut: ['cc'],
@@ -213,33 +214,87 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
 				enableHistory: true
 			}}
 		>
-			<KBarPortal>
-				<KBarPositioner
-					className="bg-white/80 dark:bg-black/80"
-					style={{ padding: '10vh 16px 16px' }}
-				>
-					<KBarAnimator
-						className="overflow-hidden w-full max-w-2xl bg-white rounded-lg shadow-2xl dark:bg-soft-black z-10"
-					>
-						<KBarSearch
-							className="dark:placeholder:text-neutral-400/60 p-4 mb-3 w-full border-b-[1px] box-border outline-none dark:bg-soft-black dark:border-neutral-500/40"
-						/>
-						<div className="pb-1.5">
-							<Results />
-						</div>
-					</KBarAnimator>
-				</KBarPositioner>
-			</KBarPortal>
+			<CommandMenu />
+			{/*<KBarPortal>*/}
+			{/*	<KBarPositioner*/}
+			{/*		className="bg-white/80 dark:bg-black/80"*/}
+			{/*		style={{ padding: '10vh 16px 16px' }}*/}
+			{/*	>*/}
+			{/*		<KBarAnimator*/}
+			{/*			className="overflow-hidden w-full max-w-2xl bg-white rounded-lg shadow-2xl dark:bg-soft-black z-10"*/}
+			{/*		>*/}
+			{/*			<KBarSearch*/}
+			{/*				className="dark:placeholder:text-neutral-400/60 p-4 mb-3 w-full border-b-[1px] box-border outline-none dark:bg-soft-black dark:border-neutral-500/40"*/}
+			{/*			/>*/}
+			{/*			<div className="pb-1.5">*/}
+			{/*				<Results />*/}
+			{/*			</div>*/}
+			{/*		</KBarAnimator>*/}
+			{/*	</KBarPositioner>*/}
+			{/*</KBarPortal>*/}
 
 			{children}
 		</KBarProvider>
 	);
 }
 
+function CommandMenu() {
+	const results = useMatches()
+			.results
+			.filter(r => typeof r !== 'string');
+
+	const { query } = useKBar();
+
+	return (
+		<KBarPortal>
+			{/* TODO: figure out how to use this specific padding value in Tailwind  */}
+			<KBarPositioner
+				className="bg-white/80 dark:bg-black/80"
+				style={{ padding: '10vh 16px 16px' }}
+			>
+				<KBarAnimator
+					className="overflow-hidden w-full max-w-2xl bg-white rounded-lg shadow-2xl dark:bg-soft-black z-10"
+				>
+					<div>
+						<ul className="absolute flex flex-row gap-x-1 px-4 py-2.5">
+							<Breadcrumb
+								text="home"
+								query={query}
+							/>
+							{(results[0] as ActionImpl).ancestors.map((el, idx) => (
+								<Breadcrumb
+									key={idx}
+									text={el.id}
+									query={query}
+								/>
+							))}
+						</ul>
+						<KBarSearch
+							className="dark:placeholder:text-neutral-400/60 pt-11 pb-3.5 px-4 mb-3 w-full border-b-[1px] box-border outline-none dark:bg-soft-black dark:border-neutral-500/40"
+						/>
+					</div>
+					<div className="pb-1.5">
+						<Results />
+					</div>
+				</KBarAnimator>
+			</KBarPositioner>
+		</KBarPortal>
+	);
+}
+
+function Breadcrumb({ text, query }: { text: string, query: KBarQuery }) {
+	return (
+		<button
+			className="px-[.45rem] py-0.5 bg-gray-200 text-slate-600/90 text-xs rounded-md capitalize"
+			onClick={() => query.setCurrentRootAction(text === 'home' ? '' : text)}
+		>
+			{text}
+		</button>
+	);
+}
+
 function Results() {
 	const { results, rootActionId } = useMatches();
-
-	console.log(results);
 
 	return (
 		<KBarResults
