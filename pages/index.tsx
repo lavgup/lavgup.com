@@ -6,7 +6,7 @@ export default function Home({ projects }: InferGetStaticPropsType<typeof getSta
 	return (
 		<Container rss>
 			<div>
-				<h1 className="text-4xl font-bold transform-gpu">
+				<h1 className="select-none text-4xl font-bold transform-gpu">
 					Hi, I'm{" "}
 					<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F04D4D] to-[#e6c02c]">
 						Lav.
@@ -32,7 +32,7 @@ export default function Home({ projects }: InferGetStaticPropsType<typeof getSta
 					Projects
 				</h2>
 
-				<div className="flex flex-col gap-2 mt-2">
+				<div className="grid grid-cols-1 gap-2 mt-2">
 					{projects.reverse().map((el, idx) => (
 						<ProjectCard
 							key={idx}
@@ -40,6 +40,15 @@ export default function Home({ projects }: InferGetStaticPropsType<typeof getSta
 						/>
 					))}
 				</div>
+
+				{/*<div className="grid grid-cols-1 gap-2 mt-2">*/}
+				{/*	{projects.reverse().map((el, idx) => (*/}
+				{/*		<ProjectCard*/}
+				{/*			key={idx}*/}
+				{/*			project={el}*/}
+				{/*		/>*/}
+				{/*	))}*/}
+				{/*</div>*/}
 			</div>
 		</Container>
 	);
@@ -49,7 +58,7 @@ function ProjectCard({ project }: { project: InferGetStaticPropsType<typeof getS
 	return (
 		<a
 			href={project.url}
-			className="p-3 w-full rounded-md border-2 border border-orange-500/30 bg-orange-200/20 dark:bg-orange-600/10 dark:border-orange-600/40"
+			className="p-3 w-full rounded-md border-2 border border-orange-500/30 bg-orange-200/20 dark:bg-neutral-800/20 dark:border-neutral-700/10"
 		>
 			<h3 className="text-lg font-bold tracking-tight dark:text-orange-200/90">
 				{project.name}

@@ -8,6 +8,6 @@ Most of the content on the site is pulled from Notion, as I don't enjoy the MDX/
 * [Next.js](https://nextjs.org/)
 * [Vercel](https://vercel.com/)
 * [Tailwind CSS](https://tailwindcss.com/)
-* [Headless UI](https://headlessui.dev/)
+* [Kbar](https://kbar.vercel.app/)
 * [Notion](https://developers.notion.com/)
 * [Panelbear](https://panelbear.com/)

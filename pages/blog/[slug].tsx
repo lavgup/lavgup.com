@@ -1,22 +1,21 @@
 import { Fragment } from 'react';
-import { InferGetStaticPropsType } from 'next';
 import { ExtractedPropertyValue } from '../../lib/utils';
 import { getBlocks, getDatabase, getPage } from '../../lib/notion';
 import { renderBlock} from '../../lib/notion/renderer';
 import Container from '../../components/Container';
 import { NotionIcon } from '../../components/icons';
-import { ListBlockChildrenResponse, QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
+import { ListBlockChildrenResponse } from '@notionhq/client/build/src/api-endpoints';
 import BackArrow from '../../components/BackArrow';
 
-export default function BlogPost({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function BlogPost({ page, blocks }: {
+	page: any,
+	blocks: ListBlockChildrenResponse['results']
+}) {
 	if (!page || !blocks) return null;
 
-	const assertedPage = page as QueryDatabaseResponse['results'][0];
-	const assertedBlocks = blocks as ListBlockChildrenResponse['results'];
+	const title = (page.properties['Title'] as ExtractedPropertyValue<'title'>).title[0].plain_text;
 
-	const title = (assertedPage.properties['Title'] as ExtractedPropertyValue<'title'>).title[0].plain_text;
-
-	const published = (assertedPage.properties['Published At'] as ExtractedPropertyValue<'date'>).date?.start;
+	const published = (page.properties['Published At'] as ExtractedPropertyValue<'date'>).date?.start;
 	const formatted = new Date(published as string).toLocaleDateString('en-GB', {
 		month: 'long',
 		day: 'numeric',
@@ -24,12 +23,12 @@ export default function BlogPost({ page, blocks }: InferGetStaticPropsType<typeo
 		timeZone: 'UTC'
 	});
 
-	const notion = assertedPage.url.replace('www.notion.so', 'lavya.notion.site');
+	const notion = page.url.replace('www.notion.so', 'lavya.notion.site');
 
 	return (
 		<Container
 			title={`${title} - Lav`}
-			description={(assertedPage.properties['Description'] as ExtractedPropertyValue<'rich_text'>).rich_text[0].plain_text}
+			description={(page.properties['Description'] as ExtractedPropertyValue<'rich_text'>).rich_text[0].plain_text}
 			rss
 		>
 			<BackArrow href="/blog" text="All posts" />
@@ -52,7 +51,7 @@ export default function BlogPost({ page, blocks }: InferGetStaticPropsType<typeo
 			</div>
 
 			<div className="mt-10">
-				{assertedBlocks.map((block, idx) => (
+				{blocks.map((block, idx) => (
 					<Fragment key={idx}>
 						{renderBlock(block)}
 					</Fragment>
@@ -66,7 +65,7 @@ export async function getStaticPaths() {
 	const database = await getDatabase(process.env.NOTION_BLOG_ID as string);
 
 	return {
-		paths: database.map(page => ({
+		paths: database.map((page: any) => ({
 			params: {
 				slug: (page.properties.Slug as ExtractedPropertyValue<'rich_text'>).rich_text[0].plain_text
 			}
@@ -83,7 +82,7 @@ export async function getStaticProps({ params }: Params) {
 	const { slug } = params;
 
 	const page = await getPage(slug, process.env.NOTION_BLOG_ID as string);
-	const blocks = await getBlocks(page.id);
+	const blocks: any[] = await getBlocks(page.id);
 
 	const childBlocks = await Promise.all(
 		blocks

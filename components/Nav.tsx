@@ -40,7 +40,7 @@ export default function Nav() {
 				sticky w-full
 				${vState !== 'hidden' && 'invisible'}
 				backdrop-saturate-[180%] backdrop-blur-2xl
-				top-0 z-10 px-2 pt-3.5 pb-5 mx-auto mb-5
+				top-0 z-10 px-2 pt-3.5 pb-5 mx-auto mb-7
 			`}
 		>
 			<div className="flex items-center justify-between max-w-[54rem] w-full mx-auto">

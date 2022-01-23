@@ -1,19 +1,7 @@
-import { ListBlockChildrenResponse } from '@notionhq/client/build/src/api-endpoints';
 import Image from 'next/image';
 
-type Block = ListBlockChildrenResponse['results'][number];
-type Unpacked<T> = T extends (infer U)[] ? U : T;
-
-export type BlockType = Block['type'];
-
-export type ExtractedBlockType<TType extends BlockType> = Extract<
-	Block,
-	{ type: TType }
-	>;
-
 export const Text = ({ text, className = [] }: {
-	// @ts-ignore
-	text: ExtractedBlockType<BlockType>[BlockType]['text'][number],
+	text: any,
 	className?: string[]
 }) => {
 	if (!text) return null;
@@ -39,7 +27,7 @@ export const Text = ({ text, className = [] }: {
 	);
 };
 
-export function renderBlock(block: Unpacked<Block>) {
+export function renderBlock(block: any) {
 	const { type, id } = block;
 
 	switch (type) {
