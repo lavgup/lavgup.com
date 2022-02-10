@@ -2,19 +2,19 @@
 module.exports = {
     reactStrictMode: true,
     typescript: {
-      ignoreBuildErrors: true
+        ignoreBuildErrors: true
     },
     eslint: {
-      ignoreDuringBuilds: true
+        ignoreDuringBuilds: true
     },
     images: {
-        domains: ['http.cat']
+        domains: ['http.cat', 's3.us-west-2.amazonaws.com']
     },
     rewrites() {
         return [
             {
                 source: '/bear.js',
-                destination: 'https://cdn.panelbear.com/analytics.js',
+                destination: 'https://cdn.panelbear.com/analytics.js'
             }
         ];
     }

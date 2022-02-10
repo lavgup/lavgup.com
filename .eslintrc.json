@@ -1,14 +1,13 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
-  "rules": {
-    "no-unused-vars": ["error", { "args": "none" }],
-    "react/no-unescaped-entities": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
-    "semi": "error"
-  }
+    "extends": [
+        "next/core-web-vitals",
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "rules": {
+        "no-unused-vars": ["error", { "args": "none" }],
+        "react/no-unescaped-entities": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off"
+    }
 }

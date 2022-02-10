@@ -7,9 +7,9 @@ export type PropertyValue = PropertyValueMap[string];
 export type PropertyValueType = PropertyValue['type'];
 
 export type ExtractedPropertyValue<TType extends PropertyValueType> = Extract<
-	PropertyValue,
-	{ type: TType }
-	>;
+    PropertyValue,
+    { type: TType }
+>;
 
-export const capitalise = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
-
+export const capitalise = (str: string) =>
+    str.charAt(0).toUpperCase() + str.slice(1);
