@@ -23,7 +23,7 @@ export default function Project({
 
     return (
         <Container title={`${title} - Lav`} description={description}>
-            <div className="flex flex-row items-center gap-3">
+            <div className="flex flex-row flex-wrap items-center gap-3">
                 <h1 className="text-4xl font-bold">{title}</h1>
                 <div
                     className={`mt-0.5 pt-[.08rem] pb-[.23rem] px-1.5 bg-blue-300/60 dark:bg-blue-500/40 rounded-lg text-sm`}
