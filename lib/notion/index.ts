@@ -58,7 +58,9 @@ export async function getProjects<T extends number>(
     databaseId: string,
     limit?: Integer<T>
 ) {
-    const database = await getDatabase(databaseId);
+    const database = await getDatabase(databaseId, [
+        { property: 'Order', direction: 'descending' }
+    ]);
 
     const pages = database.map((page: any) => ({
         name: page.properties.Name.title[0].plain_text,

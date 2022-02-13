@@ -1,9 +1,11 @@
 import Image from 'next/image';
+import { useState } from 'react';
+import clsx from 'clsx';
 
 export const Text = ({
-    text,
-    className = []
-}: {
+                         text,
+                         className = []
+                     }: {
     text: any[];
     className?: string[];
 }) => {
@@ -44,7 +46,7 @@ export const Text = ({
 
                 if (code)
                     return (
-                        <code key={idx} className="text-pink-400/90">
+                        <code key={idx} className='text-pink-400/90'>
                             {content}
                         </code>
                     );
@@ -60,7 +62,7 @@ export function renderBlock(block: any) {
     switch (type) {
         case 'paragraph':
             return (
-                <p className="mt-4">
+                <p className='mt-4'>
                     <Text
                         className={['prose', 'dark:prose-dark']}
                         text={block.paragraph.text}
@@ -82,7 +84,7 @@ export function renderBlock(block: any) {
                     id={block.heading_2.text[0].plain_text
                         .toLowerCase()
                         .replace(' ', '-')}
-                    className="mt-10"
+                    className='mt-10'
                 >
                     <Text
                         className={['font-bold', 'text-2xl']}
@@ -116,7 +118,7 @@ export function renderBlock(block: any) {
                 <div>
                     <label htmlFor={id}>
                         <input
-                            type="checkbox"
+                            type='checkbox'
                             id={id}
                             defaultChecked={block.to_do.checked}
                         />{' '}
@@ -138,15 +140,16 @@ export function renderBlock(block: any) {
 
             return (
                 <figure>
-                    <Image
+                    <BlurImage
                         src={src}
                         alt={caption}
-                        className="rounded-lg mt-6"
                         width={800}
                         height={500}
+                        priority
+                        className='rounded-md mt-6 w-full'
                     />
                     {caption && (
-                        <figcaption className="text-sm text-neutral-600/90 dark:text-neutral-300 pt-2">
+                        <figcaption className='text-sm text-neutral-600/90 dark:text-neutral-300 pt-2'>
                             {caption}
                         </figcaption>
                     )}
@@ -164,4 +167,23 @@ export function renderBlock(block: any) {
         default:
             return <></>;
     }
+}
+
+function BlurImage({ ...props }) {
+    const [isLoading, setLoading] = useState(true);
+
+    return (
+        <Image
+            {...props}
+            src={props.src}
+            className={clsx(
+                props.className,
+                'duration-700 ease-in-out',
+                isLoading
+                    ? 'grayscale blur-2xl scale-110'
+                    : 'grayscale-0 blur-0 scale-100'
+            )}
+            onLoadingComplete={() => setLoading(false)}
+        />
+    );
 }
