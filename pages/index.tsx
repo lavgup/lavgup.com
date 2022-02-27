@@ -55,7 +55,7 @@ function ProjectCard({
             <h3 className="text-lg font-bold tracking-tight text-orange-900/[.65] dark:text-orange-200/90">
                 {project.name}
             </h3>
-            <p className="mt-2 text-orange-700/70 dark:text-[#FAA274]/70">
+            <p className="mt-2 text-amber-700/80 dark:text-[#FAA274]/70">
                 {project.description}
             </p>
         </a>

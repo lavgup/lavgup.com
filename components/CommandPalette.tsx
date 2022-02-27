@@ -251,7 +251,7 @@ function CommandMenu() {
 
 function Breadcrumbs() {
     const { results, rootActionId } = useMatches();
-    const filtered = results.filter((r) => typeof r !== 'string')
+    const filtered = results.filter((r) => typeof r !== 'string');
 
     const { query } = useKBar();
 
