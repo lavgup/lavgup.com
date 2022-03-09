@@ -3,7 +3,7 @@ import { InferGetStaticPropsType } from 'next';
 import Container from '../components/Container';
 import Image from 'next/image';
 
-import DesktopHardware from '../public/static/images/DeskSetup.png';
+import DesktopHardware from '../public/static/images/desk.png';
 
 type StackType = InferGetStaticPropsType<typeof getStaticProps>['stack'];
 

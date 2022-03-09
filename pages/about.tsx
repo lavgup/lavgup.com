@@ -2,7 +2,7 @@ import Container from 'components/Container';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import sunset from '../public/static/images/Sunset.jpeg';
+import sunset from '../public/static/images/sunset.jpeg';
 
 export default function About() {
     return (

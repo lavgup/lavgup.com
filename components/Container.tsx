@@ -18,7 +18,7 @@ export default function Container(props: Props) {
     const { children, ...customMeta } = props;
     const router = useRouter();
     const meta = {
-        title: 'Lav Gup - Aussie student',
+        title: 'Lavya Gupta - Aussie student',
         description:
             'Australian student with a passion to learn and explore the world-wide web.',
         image: 'https://lavya.me/static/banner.png',
