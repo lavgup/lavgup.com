@@ -9,8 +9,8 @@ import { getPosts } from './notion';
 async function generate() {
     const feed = new RSS({
         title: 'Lav',
-        site_url: 'https://lavya.me',
-        feed_url: 'https://lavya.me/feed.xml'
+        site_url: 'https://lavgup.com',
+        feed_url: 'https://lavgup.com/feed.xml'
     });
 
     const posts = await getPosts(process.env.NOTION_BLOG_ID as string);
@@ -19,7 +19,7 @@ async function generate() {
         feed.item({
             title: post.title,
             description: post.description,
-            url: `https://lavya.me/blog/${post.slug}`,
+            url: `https://lavgup.comblog/${post.slug}`,
             date: post.publishedAt
         });
     });
