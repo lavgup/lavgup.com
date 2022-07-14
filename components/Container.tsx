@@ -21,7 +21,7 @@ export default function Container(props: Props) {
         title: 'Lavya Gupta - Aussie student',
         description:
             'Australian student with a passion to learn and explore the world-wide web.',
-        image: 'https://lavya.me/static/banner.png',
+        image: 'https://lavgup.com/static/banner.png',
         type: 'website',
         ...customMeta
     };
@@ -34,11 +34,11 @@ export default function Container(props: Props) {
                 <meta content={meta.description} name="description" />
                 <meta
                     property="og:url"
-                    content={`https://lavya.me${router.asPath}`}
+                    content={`https://lavgup.com${router.asPath}`}
                 />
                 <link
                     rel="canonical"
-                    href={`https://lavya.me${router.asPath}`}
+                    href={`https://lavgup.com${router.asPath}`}
                 />
                 <meta property="og:type" content={meta.type} />
                 <meta property="og:site_name" content="Lavya Gupta" />

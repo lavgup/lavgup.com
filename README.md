@@ -1,4 +1,4 @@
-## lavya.me
+## lavgup.com
 
 Personal portfolio website.
 

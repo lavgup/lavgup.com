@@ -165,7 +165,7 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
             keywords: 'copy share url',
             perform: async () => {
                 await navigator.clipboard.writeText(
-                    'https://lavya.me' + router.asPath
+                    'https://lavgup.com' + router.asPath
                 );
 
                 toast.success('Copied to clipboard!', {
@@ -183,9 +183,9 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
             keywords: 'rss feed atom',
             perform: async () => {
                 await navigator.clipboard.writeText(
-                    'https://lavya.me/feed.xml'
+                    'https://lavgup.com/feed.xml'
                 );
-                await router.push('https://lavya.me/feed.xml');
+                await router.push('https://lavgup.com/feed.xml');
             }
         },
         {
@@ -195,7 +195,7 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
             shortcut: ['sc'],
             section: Sections.General,
             keywords: 'source code',
-            perform: () => window.open('https://github.com/lavgup/lavya.me')
+            perform: () => window.open('https://github.com/lavgup/lavgup.com')
         }
     ].map((action) => {
         const obj = {
