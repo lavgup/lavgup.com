@@ -59,7 +59,7 @@ export async function getProjects<T extends number>(
     limit?: Integer<T>
 ) {
     const database = await getDatabase(databaseId, [
-        { property: 'Order', direction: 'descending' }
+        { property: 'Order', direction: 'ascending' }
     ]);
 
     const pages = database.map((page: any) => ({
@@ -68,7 +68,8 @@ export async function getProjects<T extends number>(
         source: page.properties.Source?.url as string,
         link: page.properties.Link?.url as string,
         type: page.properties.Type.select?.name as string,
-        slug: page.properties.Slug.rich_text[0].plain_text
+        slug: page.properties.Slug.rich_text[0].plain_text,
+        order: page.properties.Order.number as number
     }));
 
     return limit && limit > 0 ? pages.splice(0, limit) : pages;

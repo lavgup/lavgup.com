@@ -69,6 +69,6 @@ export async function getStaticProps() {
     );
 
     return {
-        props: { projects }
+        props: { projects: projects.sort((a, b) => b.order - a.order) }
     };
 }
