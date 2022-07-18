@@ -33,8 +33,8 @@ export default function Home({
                 <h2 className="text-2xl font-bold transform-gpu">Projects</h2>
 
                 <div className="grid grid-cols-1 gap-2 mt-2">
-                    {projects.reverse().map((el) => (
-                        <ProjectCard key={el.slug} project={el} />
+                    {projects.map((el) => (
+                        <ProjectCard key={el.order} project={el} />
                     ))}
                 </div>
             </div>
@@ -69,6 +69,6 @@ export async function getStaticProps() {
     );
 
     return {
-        props: { projects: projects.sort((a, b) => b.order - a.order) }
+        props: { projects: projects.sort((a, b) => a.order - b.order) }
     };
 }
