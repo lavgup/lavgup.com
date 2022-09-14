@@ -58,7 +58,7 @@ export async function getProjects<T extends number>(
     databaseId: string,
     limit?: Integer<T>
 ) {
-    const database = await getDatabase(databaseId, [
+    const database: any = await getDatabase(databaseId, [
         { property: 'Order', direction: 'ascending' }
     ]);
 
