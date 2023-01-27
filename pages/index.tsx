@@ -40,27 +40,27 @@ export default function Home({ weather }: { weather: InferGetStaticPropsType<typ
     const CurrentIcon = iconMap[weather.icon] ?? Icons.CloudIcon;
 
     return (
-        <div className='flex flex-col lg:flex-row gap-12 max-w-3/4 md:justify-center p-8 md:p-10 lg:p-24 xl:p-32'>
-            <div className='w-full text-left'>
-                <h1 className='text-4xl font-bold'>Lav</h1>
+        <div className="flex flex-col gap-12 p-8 md:justify-center md:p-10 lg:flex-row lg:p-24 xl:p-32 max-w-3/4">
+            <div className="w-full text-left">
+                <h1 className="text-4xl font-bold">Lav</h1>
 
-                <h2 className='text-md font-medium w-fit mt-4 rounded-md'>links</h2>
-                <div className='flex flex-row gap-2 mt-2 opacity-90'>
-                    <Link href='https://github.com/lavgup'>
-                        <Icons.GitHubIcon className='w-9 bg-neutral-300/70 dark:bg-stone-700 rounded-2xl p-1.5 hover:scale-90' />
+                <h2 className="mt-4 font-medium rounded-md text-md w-fit">links</h2>
+                <div className="flex flex-row gap-2 mt-2 opacity-90">
+                    <Link href="https://github.com/lavgup">
+                        <Icons.GitHubIcon className="p-1.5 w-9 rounded-2xl hover:scale-90 bg-neutral-300/70 dark:bg-stone-700" />
                     </Link>
-                    <Link href='https://twitter.com/lavgup/likes'>
-                        <Icons.TwitterIcon className='w-9 bg-sky-500/70 dark:bg-sky-400/40 rounded-2xl p-1.5 hover:scale-90' />
+                    <Link href="https://twitter.com/lavgup/likes">
+                        <Icons.TwitterIcon className="p-1.5 w-9 rounded-2xl hover:scale-90 bg-sky-500/70 dark:bg-sky-400/40" />
                     </Link>
-                    <Link href='mailto://contact@lavgup.com'>
-                        <Icons.MailIcon className='w-9 bg-amber-400/70 dark:bg-amber-900/80 rounded-2xl p-1.5 hover:scale-90' />
+                    <Link href="mailto://contact@lavgup.com">
+                        <Icons.MailIcon className="p-1.5 w-9 rounded-2xl hover:scale-90 bg-amber-400/70 dark:bg-amber-900/80" />
                     </Link>
                 </div>
 
-                <h2 className='text-md font-medium w-fit mt-6 md:mt-8 rounded-md'>newcastle, au</h2>
-                <div className='flex flex-col gap-2 mt-2 text-sm font-medium opacity-80'>
+                <h2 className="mt-6 font-medium rounded-md md:mt-8 text-md w-fit">newcastle, au</h2>
+                <div className="flex flex-col gap-2 mt-2 text-sm font-medium opacity-80">
                     <div title="time"
-                         className="flex flex-row items-center gap-2 rounded-xl py-1.5 px-4 bg-neutral-300/70 dark:bg-neutral-700/80 w-fit"
+                         className="flex flex-row gap-2 items-center py-1.5 px-4 rounded-xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80"
                     >
                         <Icons.ClockIcon className="w-5" />
                         {date.toLocaleTimeString('en-AU', {
@@ -70,25 +70,25 @@ export default function Home({ weather }: { weather: InferGetStaticPropsType<typ
                             timeZone: 'Australia/Sydney'
                         })}
                     </div>
-                    <div title='current conditions'
-                         className='flex flex-row items-center gap-2 rounded-xl py-1.5 px-4 bg-neutral-300/70 dark:bg-neutral-700/80 w-fit'>
-                        <CurrentIcon className='w-5' /> <p
-                        title='current conditions'>{weather.conditions.toLowerCase() || 'cloudy'}</p>
+                    <div title="current conditions"
+                         className="flex flex-row gap-2 items-center py-1.5 px-4 rounded-xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80">
+                        <CurrentIcon className="w-5" /> <p
+                        title="current conditions">{weather.conditions.toLowerCase() || 'cloudy'}</p>
                     </div>
-                    <div title='temperature'
-                         className='flex flex-rows items-center gap-2 rounded-xl py-2 px-4 bg-neutral-300/70 dark:bg-neutral-700/80 w-fit'>
-                        <Icons.ThermometerIcon className='w-5' /> {weather.temp ? Math.round(weather.temp) : '20'}°
+                    <div title="temperature"
+                         className="flex gap-2 items-center py-2 px-4 rounded-xl flex-rows bg-neutral-300/70 w-fit dark:bg-neutral-700/80">
+                        <Icons.ThermometerIcon className="w-5" /> {weather.temp ? Math.round(weather.temp) : '20'}°
                     </div>
-                    <div className='flex flex-row gap-2'>
-                        <div title='sunrise'
-                             className='flex flex-col justify-center items-center px-3 py-2 bg-neutral-300/70 dark:bg-neutral-700/80 rounded-2xl w-fit'>
-                            <Icons.SunriseIcon className='w-5 rounded-2xl' />
+                    <div className="flex flex-row gap-2">
+                        <div title="sunrise"
+                             className="flex flex-col justify-center items-center py-2 px-3 rounded-2xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80">
+                            <Icons.SunriseIcon className="w-5 rounded-2xl" />
                             {sunrise || '6:03am'}
                         </div>
-                        <div className='w-20 h-3 border-neutral-400/70 rounded-tl-full rounded-tr-full border-b-0 border-2 border-dashed' />
-                        <div title='sunset'
-                             className='flex flex-col justify-center items-center px-3 py-2 bg-neutral-300/70 dark:bg-neutral-700/80 rounded-2xl w-fit'>
-                            <Icons.SunsetIcon className='w-5 rounded-2xl mb-0.5' />
+                        <div className="w-20 h-3 rounded-tl-full rounded-tr-full border-2 border-b-0 border-dashed border-neutral-400/70" />
+                        <div title="sunset"
+                             className="flex flex-col justify-center items-center py-2 px-3 rounded-2xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80">
+                            <Icons.SunsetIcon className="mb-0.5 w-5 rounded-2xl" />
                             {sunset || '7:45pm'}
                         </div>
                     </div>
@@ -97,20 +97,20 @@ export default function Home({ weather }: { weather: InferGetStaticPropsType<typ
             </div>
             <div>
                 <Atropos highlight={false} shadow={false} activeOffset={-5} rotateXMax={10} rotateYMax={10}>
-                    <div className='rounded-2xl w-fit h-f-fit'>
+                    <div className="rounded-2xl w-fit h-f-fit">
                         <Image
-                            className='rounded-2xl'
-                            alt='Shri Nageshvar Jyotirlinga'
+                            className="rounded-2xl"
+                            alt="Shri Nageshvar Jyotirlinga"
                             src={Nageshvar}
                             width={756}
                             height={1008}
-                            placeholder='blur'
+                            placeholder="blur"
                         />
                     </div>
                 </Atropos>
 
-                <div className='text-sm text-gray-700 dark:text-gray-400 mt-3'>
-                    <p className='italic'>Shri Nageshvar Jyotirlinga</p>
+                <div className="mt-3 text-sm text-gray-700 dark:text-gray-400">
+                    <p className="italic">Shri Nageshvar Jyotirlinga</p>
                     <p>Dwarka, Gujarat - December 27, 2022</p>
                 </div>
             </div>

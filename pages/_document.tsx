@@ -23,7 +23,7 @@ export default class MyDocument extends Document {
                     <title>Lav</title>
                 </Head>
 
-                <body className="bg-amber-50/40 dark:text-white dark:bg-black">
+                <body className="dark:text-white dark:bg-black bg-amber-50/40">
                     <Main />
                     <NextScript />
                 </body>
