@@ -15,9 +15,3 @@
             U+2212, U+2215, U+FEFF, U+FFFD;
     }
 }
-
-@layer components {
-    #kbar-listbox-item-0 p {
-        padding-top: 0.35rem;
-    }
-}
