@@ -20,9 +20,10 @@ export default class MyDocument extends Document {
                         sizes="32x32"
                         type="image/png"
                     />
+                    <title>Lav</title>
                 </Head>
 
-                <body className="dark:text-white bg-amber-50/40 dark:bg-soft-black">
+                <body className="dark:text-white dark:bg-black bg-amber-50/40">
                     <Main />
                     <NextScript />
                 </body>
