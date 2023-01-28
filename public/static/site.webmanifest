@@ -2,8 +2,6 @@
     "name": "Lav Gup",
     "short_name": "lavgup.com",
     "description": "Aussie student, hobby software developer and badminton player.",
-    "background_color": "#ffffff",
-    "theme_color": "#ffffff",
     "display": "standalone",
     "dir": "ltr",
     "lang": "en-GB",

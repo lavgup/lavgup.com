@@ -18,99 +18,79 @@ const iconMap: { [k: string]: React.FC<{ className: string }> } = {
 };
 
 export default function Home({ weather }: { weather: InferGetStaticPropsType<typeof getStaticProps>['weather'] }) {
-    let sunrise = weather.sunrise, sunset = weather.sunset;
-    [sunrise, sunset].forEach(s => {
-        const time = new Date(s * 1000).toLocaleTimeString('en-AU', {
-            hour: 'numeric',
-            minute: '2-digit',
-            hourCycle: 'h12',
-            timeZone: 'Australia/Sydney'
-        });
-
-        if (!isNaN(sunrise)) sunrise = time;
-        else sunset = time;
-    });
-
     const [date, setDate] = useState(new Date());
     useEffect(() => {
         const timerId = setInterval(() => setDate(new Date()), 10000);
-        return () => clearInterval(timerId)
+        return () => clearInterval(timerId);
     }, []);
 
     const CurrentIcon = iconMap[weather.icon] ?? Icons.CloudIcon;
 
     return (
-        <div className="flex flex-col gap-12 p-8 md:justify-center md:p-10 lg:flex-row lg:p-24 xl:p-32 max-w-3/4">
-            <div className="w-full text-left">
-                <h1 className="text-4xl font-bold">Lav</h1>
+        <div className='flex flex-col gap-12 p-8 md:justify-center md:p-10 lg:flex-row lg:p-24 xl:p-32 max-w-3/4'>
+            <div className='w-full text-left'>
+                <h1 className='text-4xl font-bold'>Lav</h1>
 
-                <h2 className="mt-4 font-medium rounded-md text-md w-fit">links</h2>
-                <div className="flex flex-row gap-2 mt-2 opacity-90">
-                    <Link href="https://github.com/lavgup">
-                        <Icons.GitHubIcon className="p-1.5 w-9 rounded-2xl hover:scale-90 bg-neutral-300/70 dark:bg-stone-700" />
+                <h2 className='mt-4 font-medium rounded-md text-md w-fit'>links</h2>
+                <div className='flex flex-row gap-2 mt-2 opacity-90'>
+                    <Link href='https://github.com/lavgup'>
+                        <Icons.GitHubIcon
+                            className='p-1.5 w-9 rounded-2xl hover:scale-90 bg-neutral-300/70 dark:bg-stone-700' />
                     </Link>
-                    <Link href="https://twitter.com/lavgup/likes">
-                        <Icons.TwitterIcon className="p-1.5 w-9 rounded-2xl hover:scale-90 bg-sky-500/70 dark:bg-sky-400/40" />
+                    <Link href='https://twitter.com/lavgup/likes'>
+                        <Icons.TwitterIcon
+                            className='p-1.5 w-9 rounded-2xl hover:scale-90 bg-sky-500/70 dark:bg-sky-400/40' />
                     </Link>
-                    <Link href="mailto://contact@lavgup.com">
-                        <Icons.MailIcon className="p-1.5 w-9 rounded-2xl hover:scale-90 bg-amber-400/70 dark:bg-amber-900/80" />
+                    <Link href='mailto://contact@lavgup.com'>
+                        <Icons.MailIcon
+                            className='p-1.5 w-9 rounded-2xl hover:scale-90 bg-amber-400/70 dark:bg-amber-900/80' />
                     </Link>
                 </div>
 
-                <h2 className="mt-6 font-medium rounded-md md:mt-8 text-md w-fit">newcastle, au</h2>
-                <div className="flex flex-col gap-2 mt-2 text-sm font-medium opacity-80">
-                    <div title="time"
-                         className="flex flex-row gap-2 items-center py-1.5 px-4 rounded-xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80"
-                    >
-                        <Icons.ClockIcon className="w-5" />
-                        {date.toLocaleTimeString('en-AU', {
-                            hour: 'numeric',
-                            minute: '2-digit',
-                            hourCycle: 'h12',
-                            timeZone: 'Australia/Sydney'
-                        })}
-                    </div>
-                    <div title="current conditions"
-                         className="flex flex-row gap-2 items-center py-1.5 px-4 rounded-xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80">
-                        <CurrentIcon className="w-5" /> <p
-                        title="current conditions">{weather.conditions.toLowerCase() || 'cloudy'}</p>
-                    </div>
-                    <div title="temperature"
-                         className="flex gap-2 items-center py-2 px-4 rounded-xl flex-rows bg-neutral-300/70 w-fit dark:bg-neutral-700/80">
-                        <Icons.ThermometerIcon className="w-5" /> {weather.temp ? Math.round(weather.temp) : '20'}°
-                    </div>
-                    <div className="flex flex-row gap-2">
-                        <div title="sunrise"
-                             className="flex flex-col justify-center items-center py-2 px-3 rounded-2xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80">
-                            <Icons.SunriseIcon className="w-5 rounded-2xl" />
-                            {sunrise || '6:03am'}
+                <h2 className='mt-6 font-medium rounded-md md:mt-8 text-md w-fit'>newcastle, au</h2>
+                <div className='flex flex-col gap-2 mt-2 text-sm font-medium opacity-80'>
+                    <div className='flex flex-row gap-2'>
+                        <div title='time'
+                             className='flex flex-row gap-2 items-center py-1.5 px-4 rounded-xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80'
+                        >
+                            <Icons.ClockIcon className='w-5' />
+                            {date.toLocaleTimeString('en-AU', {
+                                hour: 'numeric',
+                                minute: '2-digit',
+                                hourCycle: 'h12',
+                                timeZone: 'Australia/Sydney'
+                            })}
                         </div>
-                        <div className="w-20 h-3 rounded-tl-full rounded-tr-full border-2 border-b-0 border-dashed border-neutral-400/70" />
-                        <div title="sunset"
-                             className="flex flex-col justify-center items-center py-2 px-3 rounded-2xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80">
-                            <Icons.SunsetIcon className="mb-0.5 w-5 rounded-2xl" />
-                            {sunset || '7:45pm'}
+                        <div title='temperature'
+                             className='flex gap-2 items-center py-2 px-4 rounded-xl flex-rows bg-neutral-300/70 w-fit dark:bg-neutral-700/80'>
+                            <Icons.ThermometerIcon className='w-5' /> {weather.temp ? Math.round(weather.temp) : '20'}°
                         </div>
                     </div>
+                    <div title='current conditions'
+                         className='flex flex-row gap-2 items-center py-1.5 px-4 rounded-xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80'>
+                        <CurrentIcon className='w-5' /> <p
+                        title='current conditions'>{weather.conditions.toLowerCase() || 'cloudy'}</p>
+                    </div>
+
                 </div>
 
             </div>
             <div>
                 <Atropos highlight={false} shadow={false} activeOffset={-5} rotateXMax={10} rotateYMax={10}>
-                    <div className="rounded-2xl w-fit h-f-fit">
+                    <div className='rounded-2xl w-fit h-f-fit'>
                         <Image
-                            className="rounded-2xl"
-                            alt="Shri Nageshvar Jyotirlinga"
+                            className='rounded-2xl'
+                            alt='Shri Nageshvar Jyotirlinga'
                             src={Nageshvar}
                             width={756}
                             height={1008}
-                            placeholder="blur"
+                            placeholder='blur'
                         />
                     </div>
                 </Atropos>
 
-                <div className="mt-3 text-sm text-gray-700 dark:text-gray-400">
-                    <p className="italic">Shri Nageshvar Jyotirlinga</p>
+                <div className='mt-3 text-sm text-gray-700 dark:text-gray-400'>
+                    <p className='italic'>Shri Nageshvar Jyotirlinga</p>
                     <p>Dwarka, Gujarat - December 27, 2022</p>
                 </div>
             </div>
@@ -123,8 +103,6 @@ export async function getStaticProps() {
     const json = await data.json();
 
     const weather = {
-        sunrise: json.currentConditions.sunriseEpoch,
-        sunset: json.currentConditions.sunsetEpoch,
         temp: json.currentConditions.temp,
         conditions: json.currentConditions.conditions,
         icon: json.currentConditions.icon as string
