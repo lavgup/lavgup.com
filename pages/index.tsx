@@ -18,19 +18,6 @@ const iconMap: { [k: string]: React.FC<{ className: string }> } = {
 };
 
 export default function Home({ weather }: { weather: InferGetStaticPropsType<typeof getStaticProps>['weather'] }) {
-    let sunrise = weather.sunrise, sunset = weather.sunset;
-    [sunrise, sunset].forEach(s => {
-        const time = new Date(s * 1000).toLocaleTimeString('en-AU', {
-            hour: 'numeric',
-            minute: '2-digit',
-            hourCycle: 'h12',
-            timeZone: 'Australia/Sydney'
-        });
-
-        if (!isNaN(sunrise)) sunrise = time;
-        else sunset = time;
-    });
-
     const [date, setDate] = useState(new Date());
     useEffect(() => {
         const timerId = setInterval(() => setDate(new Date()), 10000);
@@ -59,38 +46,27 @@ export default function Home({ weather }: { weather: InferGetStaticPropsType<typ
 
                 <h2 className="mt-6 font-medium rounded-md md:mt-8 text-md w-fit">newcastle, au</h2>
                 <div className="flex flex-col gap-2 mt-2 text-sm font-medium opacity-80">
-                    <div title="time"
-                         className="flex flex-row gap-2 items-center py-1.5 px-4 rounded-xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80"
-                    >
-                        <Icons.ClockIcon className="w-5" />
-                        {date.toLocaleTimeString('en-AU', {
-                            hour: 'numeric',
-                            minute: '2-digit',
-                            hourCycle: 'h12',
-                            timeZone: 'Australia/Sydney'
-                        })}
+                    <div className="flex flex-row gap-2">
+                        <div title="time"
+                             className="flex flex-row gap-2 items-center py-1.5 px-4 rounded-xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80"
+                        >
+                            <Icons.ClockIcon className="w-5" />
+                            {date.toLocaleTimeString('en-AU', {
+                                hour: 'numeric',
+                                minute: '2-digit',
+                                hourCycle: 'h12',
+                                timeZone: 'Australia/Sydney'
+                            })}
+                        </div>
+                        <div title="temperature"
+                             className="flex gap-2 items-center py-2 px-4 rounded-xl flex-rows bg-neutral-300/70 w-fit dark:bg-neutral-700/80">
+                            <Icons.ThermometerIcon className="w-5" /> {weather.temp ? Math.round(weather.temp) : '20'}°
+                        </div>
                     </div>
                     <div title="current conditions"
                          className="flex flex-row gap-2 items-center py-1.5 px-4 rounded-xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80">
                         <CurrentIcon className="w-5" /> <p
                         title="current conditions">{weather.conditions.toLowerCase() || 'cloudy'}</p>
-                    </div>
-                    <div title="temperature"
-                         className="flex gap-2 items-center py-2 px-4 rounded-xl flex-rows bg-neutral-300/70 w-fit dark:bg-neutral-700/80">
-                        <Icons.ThermometerIcon className="w-5" /> {weather.temp ? Math.round(weather.temp) : '20'}°
-                    </div>
-                    <div className="flex flex-row gap-2">
-                        <div title="sunrise"
-                             className="flex flex-col justify-center items-center py-2 px-3 rounded-2xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80">
-                            <Icons.SunriseIcon className="w-5 rounded-2xl" />
-                            {sunrise || '6:03am'}
-                        </div>
-                        <div className="w-20 h-3 rounded-tl-full rounded-tr-full border-2 border-b-0 border-dashed border-neutral-400/70" />
-                        <div title="sunset"
-                             className="flex flex-col justify-center items-center py-2 px-3 rounded-2xl bg-neutral-300/70 w-fit dark:bg-neutral-700/80">
-                            <Icons.SunsetIcon className="mb-0.5 w-5 rounded-2xl" />
-                            {sunset || '7:45pm'}
-                        </div>
                     </div>
                 </div>
 
@@ -123,8 +99,6 @@ export async function getStaticProps() {
     const json = await data.json();
 
     const weather = {
-        sunrise: json.currentConditions.sunriseEpoch,
-        sunset: json.currentConditions.sunsetEpoch,
         temp: json.currentConditions.temp,
         conditions: json.currentConditions.conditions,
         icon: json.currentConditions.icon as string
